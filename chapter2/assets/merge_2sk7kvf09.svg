@@ -1,0 +1,698 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="297mm"
+   height="214mm"
+   viewBox="0 0 297 214"
+   version="1.1"
+   id="svg8"
+   inkscape:version="0.92.4 5da689c313, 2019-01-14"
+   sodipodi:docname="merge.svg">
+  <defs
+     id="defs2">
+    <inkscape:path-effect
+       effect="powerstroke"
+       id="path-effect4106"
+       is_visible="true"
+       offset_points="1,0.13229166"
+       sort_points="true"
+       interpolator_type="CubicBezierJohan"
+       interpolator_beta="0.2"
+       start_linecap_type="zerowidth"
+       linejoin_type="extrp_arc"
+       miter_limit="4"
+       end_linecap_type="zerowidth" />
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.49497475"
+     inkscape:cx="811.6967"
+     inkscape:cy="482.18924"
+     inkscape:document-units="mm"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     inkscape:window-width="1366"
+     inkscape:window-height="748"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="0" />
+  <metadata
+     id="metadata5">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(0,-83)">
+    <rect
+       style="fill:#b3b3b3;stroke-width:0.1;stroke-miterlimit:4;stroke-dasharray:none;image-rendering:auto"
+       id="rect3713"
+       width="23.519718"
+       height="16.03616"
+       x="9.6217012"
+       y="261.72043" />
+    <rect
+       style="fill:#b3b3b3;stroke-width:0.1;stroke-miterlimit:4;stroke-dasharray:none;image-rendering:auto"
+       id="rect3713-3"
+       width="23.519718"
+       height="16.03616"
+       x="259.78598"
+       y="260.65137" />
+    <rect
+       style="fill:#b3b3b3;stroke-width:0.1;stroke-miterlimit:4;stroke-dasharray:none;image-rendering:auto"
+       id="rect3713-6"
+       width="23.519718"
+       height="16.03616"
+       x="224.50639"
+       y="261.18588" />
+    <rect
+       style="fill:#b3b3b3;stroke-width:0.1;stroke-miterlimit:4;stroke-dasharray:none;image-rendering:auto"
+       id="rect3713-7"
+       width="23.519718"
+       height="16.03616"
+       x="151.8091"
+       y="261.72043" />
+    <rect
+       style="fill:#b3b3b3;stroke-width:0.1;stroke-miterlimit:4;stroke-dasharray:none;image-rendering:auto"
+       id="rect3713-5"
+       width="23.519718"
+       height="16.03616"
+       x="115.46044"
+       y="261.72043" />
+    <rect
+       style="fill:#b3b3b3;stroke-width:0.1;stroke-miterlimit:4;stroke-dasharray:none;image-rendering:auto"
+       id="rect3713-35"
+       width="23.519718"
+       height="16.03616"
+       x="80.715393"
+       y="261.72086" />
+    <rect
+       style="fill:#b3b3b3;stroke-width:0.1;stroke-miterlimit:4;stroke-dasharray:none;image-rendering:auto"
+       id="rect3713-62"
+       width="23.519718"
+       height="16.03616"
+       x="42.763123"
+       y="261.72043" />
+    <rect
+       style="fill:#b3b3b3;stroke-width:0.1;stroke-miterlimit:4;stroke-dasharray:none;image-rendering:auto"
+       id="rect3713-9"
+       width="23.519718"
+       height="16.03616"
+       x="189.22682"
+       y="261.72043" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:14.93057156px;line-height:1.25;font-family:'DejaVu Math TeX Gyre';-inkscape-font-specification:'DejaVu Math TeX Gyre';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.55989641"
+       x="135.37074"
+       y="260.43839"
+       id="text3768"
+       transform="scale(0.88406668,1.1311364)"><tspan
+         sodipodi:role="line"
+         id="tspan3766"
+         x="135.37074"
+         y="260.43839"
+         style="stroke-width:0.55989641">初始序列</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:7.05555534px;line-height:1.25;font-family:'DejaVu Math TeX Gyre';-inkscape-font-specification:'DejaVu Math TeX Gyre';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="19.777945"
+       y="272.41119"
+       id="text3772"><tspan
+         sodipodi:role="line"
+         id="tspan3770"
+         x="19.777945"
+         y="272.41119"
+         style="stroke-width:0.26458332">3</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:7.05555534px;line-height:1.25;font-family:'DejaVu Math TeX Gyre';-inkscape-font-specification:'DejaVu Math TeX Gyre';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="50.246666"
+       y="272.41122"
+       id="text3776"><tspan
+         sodipodi:role="line"
+         id="tspan3774"
+         x="50.246666"
+         y="272.41122"
+         style="stroke-width:0.26458332">41</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:7.05555534px;line-height:1.25;font-family:'DejaVu Math TeX Gyre';-inkscape-font-specification:'DejaVu Math TeX Gyre';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="88.733482"
+       y="272.41122"
+       id="text3780"><tspan
+         sodipodi:role="line"
+         id="tspan3778"
+         x="88.733482"
+         y="272.41122"
+         style="stroke-width:0.26458332">52</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:7.05555534px;line-height:1.25;font-family:'DejaVu Math TeX Gyre';-inkscape-font-specification:'DejaVu Math TeX Gyre';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="122.94398"
+       y="271.87665"
+       id="text3784"><tspan
+         sodipodi:role="line"
+         id="tspan3782"
+         x="122.94398"
+         y="271.87665"
+         style="stroke-width:0.26458332">26</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:7.05555534px;line-height:1.25;font-family:'DejaVu Math TeX Gyre';-inkscape-font-specification:'DejaVu Math TeX Gyre';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="158.7581"
+       y="271.87668"
+       id="text3788"><tspan
+         sodipodi:role="line"
+         id="tspan3786"
+         x="158.7581"
+         y="271.87668"
+         style="stroke-width:0.26458332">38</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:7.05555534px;line-height:1.25;font-family:'DejaVu Math TeX Gyre';-inkscape-font-specification:'DejaVu Math TeX Gyre';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="197.2449"
+       y="271.87668"
+       id="text3792"><tspan
+         sodipodi:role="line"
+         id="tspan3790"
+         x="197.2449"
+         y="271.87668"
+         style="stroke-width:0.26458332">57</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:7.05555534px;line-height:1.25;font-family:'DejaVu Math TeX Gyre';-inkscape-font-specification:'DejaVu Math TeX Gyre';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="234.1281"
+       y="271.34213"
+       id="text3796"><tspan
+         sodipodi:role="line"
+         id="tspan3794"
+         x="234.1281"
+         y="271.34213"
+         style="stroke-width:0.26458332">9</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:7.05555534px;line-height:1.25;font-family:'DejaVu Math TeX Gyre';-inkscape-font-specification:'DejaVu Math TeX Gyre';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="266.73499"
+       y="271.87665"
+       id="text3800"><tspan
+         sodipodi:role="line"
+         id="tspan3798"
+         x="266.73499"
+         y="271.87665"
+         style="stroke-width:0.26458332">49</tspan></text>
+    <rect
+       style="fill:#b3b3b3;stroke-width:0.1;stroke-miterlimit:4;stroke-dasharray:none;image-rendering:auto"
+       id="rect3713-1"
+       width="23.519718"
+       height="16.03616"
+       x="16.036158"
+       y="221.09523" />
+    <rect
+       style="fill:#b3b3b3;stroke-width:0.1;stroke-miterlimit:4;stroke-dasharray:none;image-rendering:auto"
+       id="rect3713-3-2"
+       width="23.519718"
+       height="16.03616"
+       x="252.83696"
+       y="220.56071" />
+    <rect
+       style="fill:#b3b3b3;stroke-width:0.1;stroke-miterlimit:4;stroke-dasharray:none;image-rendering:auto"
+       id="rect3713-6-7"
+       width="23.519718"
+       height="16.03616"
+       x="229.31725"
+       y="220.56071" />
+    <rect
+       style="fill:#b3b3b3;stroke-width:0.1;stroke-miterlimit:4;stroke-dasharray:none;image-rendering:auto"
+       id="rect3713-7-0"
+       width="23.519718"
+       height="16.03616"
+       x="158.22354"
+       y="220.5607" />
+    <rect
+       style="fill:#b3b3b3;stroke-width:0.1;stroke-miterlimit:4;stroke-dasharray:none;image-rendering:auto"
+       id="rect3713-5-9"
+       width="23.519718"
+       height="16.03616"
+       x="86.060791"
+       y="221.09567" />
+    <rect
+       style="fill:#b3b3b3;stroke-width:0.1;stroke-miterlimit:4;stroke-dasharray:none;image-rendering:auto"
+       id="rect3713-35-3"
+       width="23.519718"
+       height="16.03616"
+       x="109.58051"
+       y="221.09567" />
+    <rect
+       style="fill:#b3b3b3;stroke-width:0.1;stroke-miterlimit:4;stroke-dasharray:none;image-rendering:auto"
+       id="rect3713-62-6"
+       width="23.519718"
+       height="16.03616"
+       x="39.555878"
+       y="221.09523" />
+    <rect
+       style="fill:#b3b3b3;stroke-width:0.1;stroke-miterlimit:4;stroke-dasharray:none;image-rendering:auto"
+       id="rect3713-9-0"
+       width="23.519718"
+       height="16.03616"
+       x="181.74326"
+       y="220.5607" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:7.05555534px;line-height:1.25;font-family:'DejaVu Math TeX Gyre';-inkscape-font-specification:'DejaVu Math TeX Gyre';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="24.588791"
+       y="230.71692"
+       id="text3772-6"><tspan
+         sodipodi:role="line"
+         id="tspan3770-2"
+         x="24.588791"
+         y="230.71692"
+         style="stroke-width:0.26458332">3</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:7.05555534px;line-height:1.25;font-family:'DejaVu Math TeX Gyre';-inkscape-font-specification:'DejaVu Math TeX Gyre';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="47.573963"
+       y="231.78603"
+       id="text3776-6"><tspan
+         sodipodi:role="line"
+         id="tspan3774-1"
+         x="47.573963"
+         y="231.78603"
+         style="stroke-width:0.26458332">41</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:7.05555534px;line-height:1.25;font-family:'DejaVu Math TeX Gyre';-inkscape-font-specification:'DejaVu Math TeX Gyre';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="117.59859"
+       y="231.78604"
+       id="text3780-8"><tspan
+         sodipodi:role="line"
+         id="tspan3778-7"
+         x="117.59859"
+         y="231.78604"
+         style="stroke-width:0.26458332">52</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:7.05555534px;line-height:1.25;font-family:'DejaVu Math TeX Gyre';-inkscape-font-specification:'DejaVu Math TeX Gyre';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="95.147942"
+       y="231.25145"
+       id="text3784-9"><tspan
+         sodipodi:role="line"
+         id="tspan3782-2"
+         x="95.147942"
+         y="231.25145"
+         style="stroke-width:0.26458332">26</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:7.05555534px;line-height:1.25;font-family:'DejaVu Math TeX Gyre';-inkscape-font-specification:'DejaVu Math TeX Gyre';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="165.70712"
+       y="230.71695"
+       id="text3788-0"><tspan
+         sodipodi:role="line"
+         id="tspan3786-2"
+         x="165.70712"
+         y="230.71695"
+         style="stroke-width:0.26458332">38</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:7.05555534px;line-height:1.25;font-family:'DejaVu Math TeX Gyre';-inkscape-font-specification:'DejaVu Math TeX Gyre';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="189.76135"
+       y="230.71695"
+       id="text3792-3"><tspan
+         sodipodi:role="line"
+         id="tspan3790-7"
+         x="189.76135"
+         y="230.71695"
+         style="stroke-width:0.26458332">57</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:7.05555534px;line-height:1.25;font-family:'DejaVu Math TeX Gyre';-inkscape-font-specification:'DejaVu Math TeX Gyre';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="238.93898"
+       y="230.71696"
+       id="text3796-5"><tspan
+         sodipodi:role="line"
+         id="tspan3794-9"
+         x="238.93898"
+         y="230.71696"
+         style="stroke-width:0.26458332">9</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:7.05555534px;line-height:1.25;font-family:'DejaVu Math TeX Gyre';-inkscape-font-specification:'DejaVu Math TeX Gyre';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="260.85504"
+       y="230.71693"
+       id="text3800-2"><tspan
+         sodipodi:role="line"
+         id="tspan3798-2"
+         x="260.85504"
+         y="230.71693"
+         style="stroke-width:0.26458332">49</tspan></text>
+    <rect
+       style="fill:#b3b3b3;stroke-width:0.1;stroke-miterlimit:4;stroke-dasharray:none;image-rendering:auto"
+       id="rect3713-1-8"
+       width="23.519718"
+       height="16.03616"
+       x="28.063301"
+       y="175.12532" />
+    <rect
+       style="fill:#b3b3b3;stroke-width:0.1;stroke-miterlimit:4;stroke-dasharray:none;image-rendering:auto"
+       id="rect3713-5-9-9"
+       width="23.519718"
+       height="16.03616"
+       x="51.583019"
+       y="175.12532" />
+    <rect
+       style="fill:#b3b3b3;stroke-width:0.1;stroke-miterlimit:4;stroke-dasharray:none;image-rendering:auto"
+       id="rect3713-35-3-7"
+       width="23.519718"
+       height="16.03616"
+       x="98.622459"
+       y="175.12532" />
+    <rect
+       style="fill:#b3b3b3;stroke-width:0.1;stroke-miterlimit:4;stroke-dasharray:none;image-rendering:auto"
+       id="rect3713-62-6-3"
+       width="23.519718"
+       height="16.03616"
+       x="75.102737"
+       y="175.12532" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:7.05555534px;line-height:1.25;font-family:'DejaVu Math TeX Gyre';-inkscape-font-specification:'DejaVu Math TeX Gyre';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="36.615936"
+       y="184.74701"
+       id="text3772-6-6"><tspan
+         sodipodi:role="line"
+         id="tspan3770-2-1"
+         x="36.615936"
+         y="184.74701"
+         style="stroke-width:0.26458332">3</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:7.05555534px;line-height:1.25;font-family:'DejaVu Math TeX Gyre';-inkscape-font-specification:'DejaVu Math TeX Gyre';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="83.120827"
+       y="185.81612"
+       id="text3776-6-2"><tspan
+         sodipodi:role="line"
+         id="tspan3774-1-9"
+         x="83.120827"
+         y="185.81612"
+         style="stroke-width:0.26458332">41</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:7.05555534px;line-height:1.25;font-family:'DejaVu Math TeX Gyre';-inkscape-font-specification:'DejaVu Math TeX Gyre';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="106.64054"
+       y="185.81569"
+       id="text3780-8-3"><tspan
+         sodipodi:role="line"
+         id="tspan3778-7-1"
+         x="106.64054"
+         y="185.81569"
+         style="stroke-width:0.26458332">52</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:7.05555534px;line-height:1.25;font-family:'DejaVu Math TeX Gyre';-inkscape-font-specification:'DejaVu Math TeX Gyre';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="60.670166"
+       y="185.2811"
+       id="text3784-9-9"><tspan
+         sodipodi:role="line"
+         id="tspan3782-2-4"
+         x="60.670166"
+         y="185.2811"
+         style="stroke-width:0.26458332">26</tspan></text>
+    <rect
+       style="fill:#b3b3b3;stroke-width:0.1;stroke-miterlimit:4;stroke-dasharray:none;image-rendering:auto"
+       id="rect3713-3-2-0"
+       width="23.519718"
+       height="16.03616"
+       x="240.27531"
+       y="175.65964" />
+    <rect
+       style="fill:#b3b3b3;stroke-width:0.1;stroke-miterlimit:4;stroke-dasharray:none;image-rendering:auto"
+       id="rect3713-6-7-6"
+       width="23.519718"
+       height="16.03616"
+       x="216.7556"
+       y="175.65964" />
+    <rect
+       style="fill:#b3b3b3;stroke-width:0.1;stroke-miterlimit:4;stroke-dasharray:none;image-rendering:auto"
+       id="rect3713-7-0-1"
+       width="23.519718"
+       height="16.03616"
+       x="169.71617"
+       y="175.65964" />
+    <rect
+       style="fill:#b3b3b3;stroke-width:0.1;stroke-miterlimit:4;stroke-dasharray:none;image-rendering:auto"
+       id="rect3713-9-0-5"
+       width="23.519718"
+       height="16.03616"
+       x="193.23589"
+       y="175.65964" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:7.05555534px;line-height:1.25;font-family:'DejaVu Math TeX Gyre';-inkscape-font-specification:'DejaVu Math TeX Gyre';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="201.78854"
+       y="186.35043"
+       id="text3788-0-5"><tspan
+         sodipodi:role="line"
+         id="tspan3786-2-4"
+         x="201.78854"
+         y="186.35043"
+         style="stroke-width:0.26458332">38</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:7.05555534px;line-height:1.25;font-family:'DejaVu Math TeX Gyre';-inkscape-font-specification:'DejaVu Math TeX Gyre';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="248.29343"
+       y="185.81589"
+       id="text3792-3-7"><tspan
+         sodipodi:role="line"
+         id="tspan3790-7-6"
+         x="248.29343"
+         y="185.81589"
+         style="stroke-width:0.26458332">57</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:7.05555534px;line-height:1.25;font-family:'DejaVu Math TeX Gyre';-inkscape-font-specification:'DejaVu Math TeX Gyre';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="179.87244"
+       y="185.81589"
+       id="text3796-5-5"><tspan
+         sodipodi:role="line"
+         id="tspan3794-9-6"
+         x="179.87244"
+         y="185.81589"
+         style="stroke-width:0.26458332">9</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:7.05555534px;line-height:1.25;font-family:'DejaVu Math TeX Gyre';-inkscape-font-specification:'DejaVu Math TeX Gyre';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="224.77368"
+       y="185.28131"
+       id="text3800-2-9"><tspan
+         sodipodi:role="line"
+         id="tspan3798-2-3"
+         x="224.77368"
+         y="185.28131"
+         style="stroke-width:0.26458332">49</tspan></text>
+    <rect
+       style="fill:#b3b3b3;stroke-width:0.1;stroke-miterlimit:4;stroke-dasharray:none;image-rendering:auto"
+       id="rect3713-1-8-7"
+       width="23.519718"
+       height="16.03616"
+       x="53.18663"
+       y="133.69844" />
+    <rect
+       style="fill:#b3b3b3;stroke-width:0.1;stroke-miterlimit:4;stroke-dasharray:none;image-rendering:auto"
+       id="rect3713-5-9-9-4"
+       width="23.519718"
+       height="16.03616"
+       x="100.22606"
+       y="133.69843" />
+    <rect
+       style="fill:#b3b3b3;stroke-width:0.1;stroke-miterlimit:4;stroke-dasharray:none;image-rendering:auto"
+       id="rect3713-35-3-7-5"
+       width="23.519718"
+       height="16.03616"
+       x="194.30492"
+       y="133.69843" />
+    <rect
+       style="fill:#b3b3b3;stroke-width:0.1;stroke-miterlimit:4;stroke-dasharray:none;image-rendering:auto"
+       id="rect3713-62-6-3-2"
+       width="23.519718"
+       height="16.03616"
+       x="147.26549"
+       y="133.69843" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:7.05555534px;line-height:1.25;font-family:'DejaVu Math TeX Gyre';-inkscape-font-specification:'DejaVu Math TeX Gyre';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="61.739262"
+       y="143.32013"
+       id="text3772-6-6-5"><tspan
+         sodipodi:role="line"
+         id="tspan3770-2-1-4"
+         x="61.739262"
+         y="143.32013"
+         style="stroke-width:0.26458332">3</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:7.05555534px;line-height:1.25;font-family:'DejaVu Math TeX Gyre';-inkscape-font-specification:'DejaVu Math TeX Gyre';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="155.28358"
+       y="144.38924"
+       id="text3776-6-2-7"><tspan
+         sodipodi:role="line"
+         id="tspan3774-1-9-4"
+         x="155.28358"
+         y="144.38924"
+         style="stroke-width:0.26458332">41</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:7.05555534px;line-height:1.25;font-family:'DejaVu Math TeX Gyre';-inkscape-font-specification:'DejaVu Math TeX Gyre';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="202.323"
+       y="144.38881"
+       id="text3780-8-3-4"><tspan
+         sodipodi:role="line"
+         id="tspan3778-7-1-3"
+         x="202.323"
+         y="144.38881"
+         style="stroke-width:0.26458332">52</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:7.05555534px;line-height:1.25;font-family:'DejaVu Math TeX Gyre';-inkscape-font-specification:'DejaVu Math TeX Gyre';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="109.31321"
+       y="143.85422"
+       id="text3784-9-9-0"><tspan
+         sodipodi:role="line"
+         id="tspan3782-2-4-7"
+         x="109.31321"
+         y="143.85422"
+         style="stroke-width:0.26458332">26</tspan></text>
+    <rect
+       style="fill:#b3b3b3;stroke-width:0.1;stroke-miterlimit:4;stroke-dasharray:none;image-rendering:auto"
+       id="rect3713-3-2-0-8"
+       width="23.519718"
+       height="16.03616"
+       x="217.82463"
+       y="133.69843" />
+    <rect
+       style="fill:#b3b3b3;stroke-width:0.1;stroke-miterlimit:4;stroke-dasharray:none;image-rendering:auto"
+       id="rect3713-6-7-6-6"
+       width="23.519718"
+       height="16.03616"
+       x="170.7852"
+       y="133.69843" />
+    <rect
+       style="fill:#b3b3b3;stroke-width:0.1;stroke-miterlimit:4;stroke-dasharray:none;image-rendering:auto"
+       id="rect3713-7-0-1-8"
+       width="23.519718"
+       height="16.03616"
+       x="76.706345"
+       y="133.69844" />
+    <rect
+       style="fill:#b3b3b3;stroke-width:0.1;stroke-miterlimit:4;stroke-dasharray:none;image-rendering:auto"
+       id="rect3713-9-0-5-8"
+       width="23.519718"
+       height="16.03616"
+       x="123.74577"
+       y="133.69843" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:7.05555534px;line-height:1.25;font-family:'DejaVu Math TeX Gyre';-inkscape-font-specification:'DejaVu Math TeX Gyre';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="132.29843"
+       y="144.38922"
+       id="text3788-0-5-4"><tspan
+         sodipodi:role="line"
+         id="tspan3786-2-4-3"
+         x="132.29843"
+         y="144.38922"
+         style="stroke-width:0.26458332">38</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:7.05555534px;line-height:1.25;font-family:'DejaVu Math TeX Gyre';-inkscape-font-specification:'DejaVu Math TeX Gyre';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="225.84274"
+       y="143.85468"
+       id="text3792-3-7-1"><tspan
+         sodipodi:role="line"
+         id="tspan3790-7-6-4"
+         x="225.84274"
+         y="143.85468"
+         style="stroke-width:0.26458332">57</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:7.05555534px;line-height:1.25;font-family:'DejaVu Math TeX Gyre';-inkscape-font-specification:'DejaVu Math TeX Gyre';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="86.862625"
+       y="143.85469"
+       id="text3796-5-5-9"><tspan
+         sodipodi:role="line"
+         id="tspan3794-9-6-2"
+         x="86.862625"
+         y="143.85469"
+         style="stroke-width:0.26458332">9</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:7.05555534px;line-height:1.25;font-family:'DejaVu Math TeX Gyre';-inkscape-font-specification:'DejaVu Math TeX Gyre';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="177.73421"
+       y="144.38918"
+       id="text3800-2-9-0"><tspan
+         sodipodi:role="line"
+         id="tspan3798-2-3-6"
+         x="177.73421"
+         y="144.38918"
+         style="stroke-width:0.26458332">49</tspan></text>
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="M 22.45064,261.18588 39.555877,237.13139"
+       id="path4108"
+       inkscape:connector-curvature="0" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.20411083px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 39.536129,237.11014 15.541135,25.16607 10e-7,1e-5"
+       id="path4110"
+       inkscape:connector-curvature="0" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.27858222px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="M 91.412153,262.25117 109.57455,237.1361"
+       id="path4108-8"
+       inkscape:connector-curvature="0" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.20411083px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 109.58051,237.13184 15.54113,25.16608 1e-5,1e-5"
+       id="path4110-9"
+       inkscape:connector-curvature="0" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 164.63803,260.65136 17.10523,-24.0545"
+       id="path4108-2"
+       inkscape:connector-curvature="0" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.20411083px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 181.72351,236.57561 15.54114,25.16608 v 10e-6"
+       id="path4110-6"
+       inkscape:connector-curvature="0" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 235.73172,260.65138 17.10524,-24.0545"
+       id="path4108-6"
+       inkscape:connector-curvature="0" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.20411083px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 252.81721,236.57563 15.54113,25.16608 10e-6,10e-6"
+       id="path4110-4"
+       inkscape:connector-curvature="0" />
+  </g>
+</svg>
