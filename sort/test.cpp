@@ -4,7 +4,9 @@
 #include <ctime>
 #include <iostream>
 
-static int Array_Init[50];
+static const int test_size = 50;
+
+static int Array_Init[test_size];
 
 enum SortMethod
 {
@@ -20,14 +22,16 @@ enum
 
 static int TestSort(const int* ar, int n, SortMethod method)
 {
-	int temp[50];
-	memcpy(temp, ar, 50 * sizeof(int));
+	int temp[test_size];
+	memcpy(temp, ar, test_size * sizeof(int));
 	switch (method)
 	{
 	case Insert_Sort:
-		InsertSort(temp, 50);
+		InsertSort(temp, test_size);
+		break;
 	case Merge_Sort:
-		MergeSort(temp, 50);
+		MergeSort(temp, 0, test_size - 1);
+		break;
 	}
 	for (int i = 1; i < n; ++i)
 	{
@@ -44,11 +48,11 @@ static int TestSort(const int* ar, int n, SortMethod method)
 int main()
 {
 	srand(time(NULL));
-	for (int i = 0; i < 50; ++i)
+	for (int i = 0; i < test_size; ++i)
 	{
 		Array_Init[i] = rand() % 100;
 	}
-	TestSort(Array_Init, 50, Insert_Sort);
-	TestSort(Array_Init, 50, Merge_Sort);
+	TestSort(Array_Init, test_size, Insert_Sort);
+	TestSort(Array_Init, test_size, Merge_Sort);
 	return 0;
 }
