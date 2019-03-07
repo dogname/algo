@@ -34,6 +34,7 @@ static int TestSort(const int* ar, int n, SortMethod method)
 		break;
 	default:
 		std::cout << "不存在的排序方式" << std::endl;
+		return Sort_Failure;
 	}
 	for (int i = 1; i < n; ++i)
 	{
