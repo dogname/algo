@@ -1,0 +1,4 @@
+/home/physics/algo/chapter4/MAX_SUBARRAY/build/CMakeFiles/rebuild_cache.dir
+/home/physics/algo/chapter4/MAX_SUBARRAY/build/CMakeFiles/edit_cache.dir
+/home/physics/algo/chapter4/MAX_SUBARRAY/build/CMakeFiles/fmaxarray.dir
+/home/physics/algo/chapter4/MAX_SUBARRAY/build/CMakeFiles/test.dir

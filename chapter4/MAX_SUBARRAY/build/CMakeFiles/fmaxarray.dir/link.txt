@@ -1,0 +1,2 @@
+/usr/bin/ar qc libfmaxarray.a  CMakeFiles/fmaxarray.dir/fmaxarray.cpp.o
+/usr/bin/ranlib libfmaxarray.a
