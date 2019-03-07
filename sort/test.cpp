@@ -4,28 +4,33 @@
 #include <ctime>
 #include <iostream>
 
-static const int test_size = 50;
+enum SortMethod
+{
+	Insert_Sort,
+	Merge_Sort,
+	Bubble_Sort
+};
 
-static int Array_Init[test_size];
-
-enum SortMethod { Insert_Sort, Merge_Sort, Bubble_Sort };
-
-enum { Sort_Success, Sort_Failure };
+enum
+{
+	Sort_Success,
+	Sort_Failure
+};
 
 static int TestSort(const int* ar, int n, SortMethod method)
 {
-	int temp[test_size];
-	memcpy(temp, ar, test_size * sizeof(int));
+	int* temp = new int[n];
+	memcpy(temp, ar, n * sizeof(int));
 	switch (method)
 	{
 	case Insert_Sort:
-		InsertSort(temp, test_size);
+		InsertSort(temp, n);
 		break;
 	case Merge_Sort:
-		MergeSort(temp, 0, test_size - 1);
+		MergeSort(temp, 0, n - 1);
 		break;
 	case Bubble_Sort:
-		BubbleSort(temp, test_size);
+		BubbleSort(temp, n);
 		break;
 	default:
 		std::cout << "不存在的排序方式" << std::endl;
@@ -39,13 +44,19 @@ static int TestSort(const int* ar, int n, SortMethod method)
 		}
 	}
 	std::cout << method << " success" << std::endl;
+	delete[] temp;
 	return Sort_Success;
 }
 
 int main()
 {
+	const int test_size = 50;
+	int Array_Init[test_size];
 	srand(time(NULL));
-	for (int i = 0; i < test_size; ++i) { Array_Init[i] = rand() % 100; }
+	for (int i = 0; i < test_size; ++i)
+	{
+		Array_Init[i] = rand() % 100;
+	}
 	TestSort(Array_Init, test_size, Insert_Sort);
 	TestSort(Array_Init, test_size, Merge_Sort);
 	TestSort(Array_Init, test_size, Bubble_Sort);
