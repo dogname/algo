@@ -59,7 +59,7 @@ int main()
 	const int test_size = 500;
 	int A[test_size];
 	double t;
-	std::clock_t start, end;
+	clock_t start, end;
 	std::srand(std::time(0));
 	for (int i = 0; i < test_size; i++)
 	{
