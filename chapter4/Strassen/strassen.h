@@ -2,10 +2,10 @@
 #define __STRASSEN_H_
 
 typedef struct SubMaxtrix {
-	int** Mat;
-	int   i_beg = 0, i_end, j_beg = 0, j_end;
+	int** Mat   = nullptr;
+	int   i_beg = 0, j_beg = 0, n;
 } SubMaxtrix;
 
-void StranssenMatrix(SubMaxtrix A, SubMaxtrix B, SubMaxtrix C);
+void StranssenMatrix(const SubMaxtrix A, const SubMaxtrix B, SubMaxtrix C);
 
 #endif  // __STRASSEN_H_

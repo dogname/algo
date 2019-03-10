@@ -5,57 +5,55 @@
 
 int main()
 {
+	int        matrix_n = 8;
 	SubMaxtrix A, B, C;
-	A.Mat = new int*[4];
-	B.Mat = new int*[4];
-	C.Mat = new int*[4];
-	for (int i = 0; i < 4; i++)
+	A.Mat = new int*[matrix_n];
+	B.Mat = new int*[matrix_n];
+	C.Mat = new int*[matrix_n];
+	for (int i = 0; i < matrix_n; i++)
 	{
-		A.Mat[i] = new int[4];
-		B.Mat[i] = new int[4];
-		C.Mat[i] = new int[4];
+		A.Mat[i] = new int[matrix_n];
+		B.Mat[i] = new int[matrix_n];
+		C.Mat[i] = new int[matrix_n];
 	}
-	A.i_end = 3;
-	A.j_end = 3;
-	B.i_end = 3;
-	B.j_end = 3;
-	C.i_end = 3;
-	C.j_end = 3;
+	A.n = matrix_n;
+	B.n = matrix_n;
+	C.n = matrix_n;
 	std::srand(time(0));
-	for (int i = 0; i < 4; i++)
-		for (int j = 0; j < 4; j++)
+	for (int i = 0; i < matrix_n; i++)
+		for (int j = 0; j < matrix_n; j++)
 		{
 			A.Mat[i][j] = std::rand() % 50 - 25;
 			B.Mat[i][j] = std::rand() % 50 - 25;
 		}
-	StranssenMatrix(A, B, C);
-	for (int i = 0; i < 4; i++)
+	for (int i = 0; i < matrix_n; i++)
 	{
-		for (int j = 0; j < 4; j++)
+		for (int j = 0; j < matrix_n; j++)
 		{
 			std::cout << A.Mat[i][j] << " ";
 		}
 		std::cout << std::endl;
 	}
 	std::cout << std::endl;
-	for (int i = 0; i < 4; i++)
+	for (int i = 0; i < matrix_n; i++)
 	{
-		for (int j = 0; j < 4; j++)
+		for (int j = 0; j < matrix_n; j++)
 		{
 			std::cout << B.Mat[i][j] << " ";
 		}
 		std::cout << std::endl;
 	}
 	std::cout << std::endl;
-	for (int i = 0; i < 4; i++)
+	StranssenMatrix(A, B, C);
+	for (int i = 0; i < matrix_n; i++)
 	{
-		for (int j = 0; j < 4; j++)
+		for (int j = 0; j < matrix_n; j++)
 		{
 			std::cout << C.Mat[i][j] << " ";
 		}
 		std::cout << std::endl;
 	}
-	for (int i = 0; i < 4; i++)
+	for (int i = 0; i < matrix_n; i++)
 	{
 		delete[] A.Mat[i];
 		delete[] B.Mat[i];
