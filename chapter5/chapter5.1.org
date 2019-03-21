@@ -1,0 +1,77 @@
+* 概率分析和随机算法
+** 雇用问题
+#+BEGIN_SRC
+HIRE-ASSISTANT(n)
+1    best = 0
+2    for i = 1 to n
+3        interview i
+4        if i is better than current best
+5            best = i
+6            hire i
+#+END_SRC
+** 习题
+*** 
+#+BEGIN_QUOTE
+偏序关系、全序关系都是公理集合论中的一种二元关系
+
+偏序集合：配备了偏序关系的集合
+
+全序集合：配备了全序关系的集合
+
+偏序：集合内只有部分元素之间在这个关系下是可以比较的
+
+比如：比如复数集中并不是所有的数都可以比较大小，那么“大小”就是复数集的一个偏序关系
+
+全序：集合内任何一对元素在在这个关系下都是相互可比较的
+
+比如：有限长度的序列按字典序是全序的～（最常见的是单词在字典中是全序的）
+
+偏序的定义：
+
+设 $R$ 是集合 $A$ 上的一个二元关系，若 $R$ 满足:
+
+Ⅰ 自反性：对任意 $x\in A$，有 $xRx$;
+
+Ⅱ 反对称性（即反对称关系）：对任意 $x,y\in A$，若 $xRy$，且 $yRx$, 则 $x=y$;
+
+Ⅲ 传递性：对任意$x, y, z\in A$，若 $xRy$, 且 $yRz$, 则 $xRz$.
+
+则称R为A上的偏序关系.
+
+全序的定义：
+
+设集合X上有一全序关系, 如果我们把这种关系用 $\leqslant$ 表述. 则下列陈述对于 $X$ 中的所有 $a, b$ 和 $c$ 成立：
+
+如果 $a \leqslant b$ 且 $b \leqslant a$ 则 $a = b$ (反对称性)
+
+如果 $a \leqslant b$ 且 $b \leqslant c$ 则 $a \leqslant c$ (传递性)
+
+$a \leqslant b$ 或 $b \leqslant a$ (完全性)
+
+注意：完全性本身也包括了自反性
+
+所以，全序关系必是偏序关系
+
+---------------------
+
+作者：柳婼
+
+    来源：CSDN
+
+原文：https://blog.csdn.net/liuchuo/article/details/51986226
+#+END_QUOTE
+*** 
+#+BEGIN_SRC
+RANDOM(a, b)
+1   rand = 0;
+2   $r = \lceil\lg(b-a+1)\rceil$
+3   for i = 1 to r
+4       rand = rand*2 + RANDOM(0,1) 
+5   return a + rand
+#+END_SRC
+*** 
+#+BEGIN_SRC
+RANDOM(0, 1)
+1   while((a=BIASED-RANDOM()) != BIASED-RANDOM());
+2   return a
+#+END_SRC
