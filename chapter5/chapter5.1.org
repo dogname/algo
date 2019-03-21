@@ -64,10 +64,12 @@ $a \leqslant b$ 或 $b \leqslant a$ (完全性)
 #+BEGIN_SRC
 RANDOM(a, b)
 1   rand = 0;
-2   $r = \lceil\lg(b-a+1)\rceil$
-3   for i = 1 to r
-4       rand = rand*2 + RANDOM(0,1) 
-5   return a + rand
+2   $r = \lceil\lg(b-a)\rceil$
+3   do
+4       for i = 1 to r
+5           rand = rand*2 + RANDOM(0,1) 
+6   while(rand > b-a)
+7   return a + rand
 #+END_SRC
 *** 
 #+BEGIN_SRC
