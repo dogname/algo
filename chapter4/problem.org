@@ -1,0 +1,54 @@
+# +OPTIONS: toc:1
+* 思考题 
+** 
+   1. $T(n)=\Theta(n^4)$
+   2. $T(n)=\Theta(n)$
+   3. $T(n)=\Theta(n^2\lg n)$
+   4. $T(n)=\Theta(n^2)$
+   5. $T(n)=\Theta(n^{\lg 7})$
+   6. $T(n)=\Theta(\sqrt{n}\lg n)$
+   7.
+ $$T(n)=n^2+T(n-2)=n^2+(n-2)^2+T(n-4)=\sum_{i=0}^{n/2}4i^2=\Theta(n^3)$$
+** 
+# +BEGIN_QUOTE
+Throughout this book, we assume that parameter passing during procedure calls takes constant time,
+even if an N-element array is being passed. This assumption is valid in most systems because
+a pointer to the array is passed, not the array itself. This problem examines the implications
+of three parameter-passing strategies: 
+1. An array is passed by pointer. $\Theta(1)$
+2. An array is passed by copying. $Time=\Theta(n)$, where $N$ is the size of the array.
+3. An array is passed by copying only the subrage that might be accessed by the called procedure. $Time=\Theta(q-p+1)$
+   if the subarray $A[p...q]$ is passed
+# +END_QUOTE
+
+a. 
+   1. $T(n)=T(n/2)+c=\Theta(\lg n)$
+   2. $T(n)=T(n/2)+cN=\Theta(n\lg n)$
+   3. $T(n)=T(n/2)+cn=\Theta(n)$
+** 
+略
+** 
+$$\mathcal{F}(z)=\sum_{i=0}^{\infty}F_iz^i$$
+其中 $F_i$ 为第i个斐波那契数   
+
+a. 证明: $\mathcal{F}(z)=z+z\mathcal{F}+z^2\mathcal{F}$
+
+b. 证明: 
+$$\mathcal{F}=\frac{z}{1-z-z^2}=\frac{z}{(1-\phi z)(1-\hat{\phi}z)}=\frac{1}{\sqrt{5}}\left( \frac{1}{1-\phi z}-\frac{1}{1-\hat{\phi} z} \right)$$
+
+a. 
+\begin{equation}
+\begin{split}
+\mathcal{F}(z)&=\sum_{i=0}^{\infty}F_iz^i\\
+&=z+\sum_{i=2}^{infty}F_iz^i\\
+&=z+\sum_{i=2}^{infty}(F_{i-1}+F_{i-2})z^i\\
+&=z+z\sum_{i=2}F_{i-1}z^{i-1}+z^2\sum_{i=2}^{\infty}F_{i-2}z^{i-2}\\
+&=z+z\mathcal{F}(z)+z^2\mathcal{F}(z)
+\end{split}
+\end{equation}
+
+b. 由a可知 $\mathcal{z)=\frac{z}{1-z-z^2}$
+** 
+略
+**  
+略
