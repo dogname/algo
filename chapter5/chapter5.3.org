@@ -1,0 +1,53 @@
+** 随机算法
+#+BEGIN_SRC
+RANDOMIZED-HIRE-ASSISTANT(n)
+1   随机排列
+2   best = 0
+3   for i = 1 to n
+4       interview candidate i
+5       if candidate i is better than candidate best
+6           bset = i
+7           hire candidate i
+#+END_SRC
+** 练习
+*** 
+循环不变式
+
+*在for循环的第i次迭代以后, 对每个可能的i排列, 子数组A[1...i-1]包含这个i排列的概率是(n-i)!/n!*
+
+*初始化*: 第一次循环后, 此时 i=1, 由循环不变式可知, 对每个可能的1排列, 子数组包含这个1排列的概率是(n-1)!/n!=1/n.子数组A[1]共有n种可能, 因此子数组包含这个1排列的概率是1/n, 第一次循环后循环不变式成立.
+
+*保持*: 假设第i次迭代后满足子数组出现的概率为(n-i)!/n!, 那第i+1次迭代后, i+1排列的出现概率是(n-i)!/n!*1/(n-i)=(n-(i+1))!/n!
+
+*终止*: 第n此循环后, 给定n排列的出现概率(n-n)!/n!=1/n!
+
+*** 
+*没有实现*
+
+因为这个代码也不能生成原排序
+*** 
+*不均匀*
+全排列共有n!, 而该算法可有 $n^n$ 种 
+*** 
+显然A[i]插入B中特定位置的概率为1/n
+
+A中的不同元素有可能插入B中相同的位置, 不一定生成一个排列
+*** 
+\begin{equation}
+\begin{split}
+P&=(1-\frac{1}{n^3})(1-\frac{2}{n^3})\cdots (1-\frac{n-1}{n^3}\\
+&\geqslant (1-\frac{n}{n^3})(1-\frac{n}{n^3})\cdots (1-\frac{n}{n^3}\\
+&\geqslant (1-\frac{1}{n^2})^n\\
+&\geqslant 1-\frac{1}{n}
+\end{split}
+\end{equation}
+
+*PS*
+
+$$(1-x)^n\geqslant 1-nx, x \geqslant 0$$
+*** 
+有一个很容易实现的方式, 就是重新生成优先级序列
+
+也许当优先级相同时按照原顺序来排列也可以, +不想证明+
+*** 
+略
