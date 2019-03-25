@@ -1,0 +1,19 @@
+** 堆
+1. 最大堆: $A[PARENT(i)]\geqslant A[i]$
+2. 最小堆: $A[PARENT(i)]\leqslant A[i]$
+** 练习
+*** 
+最多 $2^{h+1}-1$
+
+最少 $2^h$
+*** 
+$$2^h \leqslant n < 2^{h+1}\Rightarrow h=\lfloor \lg n\rfloor$$
+*** 
+根不小于他的孩子, 他的孩子也不小于孩子的孩子,根是最大的
+*** 
+叶子
+*** 
+是
+*** 
+    [[./dot.png]]
+    不是最大堆
