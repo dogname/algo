@@ -1,0 +1,6 @@
+** 概率分析
+** 练习
+*** 
+$$P=1-\left( \frac{364}{365} \right)^n \geqslant \frac{1}{2}\Rightarrow n\geqslant 253$$
+$$P=1-n(1/365)(364/365)^{n-1}-(364/365)^n \geqslant 1/2$$
+*** 
