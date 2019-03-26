@@ -11,11 +11,11 @@ void BubbleSort(int* ar, int n);
 
 inline int LeftChild(int i)
 {
-	return 2 * i;
+	return 2 * i + 1;
 }
 inline int RightChild(int i)
 {
-	return 2 * i + 1;
+	return 2 * i + 2;
 }
 
 void MaxHeapIfy(int* ar, int i, int n);
