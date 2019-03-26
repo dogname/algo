@@ -21,10 +21,10 @@ void InsertSort(int* ar, int n)
 
 void Merge(int* ar, int p, int q, int r)
 {
-	int  n1 = q - p + 1;
-	int  n2 = r - q;
+	int n1 = q - p + 1;
+	int n2 = r - q;
 	int *left, *right;
-	left  = new int[n1];
+	left = new int[n1];
 	right = new int[n2];
 	memcpy(left, &ar[p], n1 * sizeof(int));
 	memcpy(right, &ar[q + 1], n2 * sizeof(int));
@@ -76,14 +76,52 @@ void BubbleSort(int* ar, int n)
 	int temp;
 	for (int i = 0; i < n; i++)
 	{
-		for (int j = n; j > i; j--)
+		for (int j = n - 1; j > i; j--)
 		{
 			if (ar[j] < ar[j - 1])
 			{
-				temp      = ar[j];
-				ar[j]     = ar[j - 1];
+				temp = ar[j];
+				ar[j] = ar[j - 1];
 				ar[j - 1] = temp;
 			}
 		}
+	}
+}
+
+void MaxHeapIfy(int* ar, int i, int n)
+{
+	int l = LeftChild(i);
+	int r = RightChild(i);
+	int largest = i;
+	if (l < n && ar[l] > ar[i])
+		largest = l;
+	if (r < n && ar[r] > ar[largest])
+		largest = r;
+	if (largest != i)
+	{
+		int temp = ar[i];
+		ar[i] = ar[largest];
+		ar[largest] = temp;
+		MaxHeapIfy(ar, largest, n);
+	}
+}
+
+void BuildMaxHeap(int* ar, int n)
+{
+	for (int i = (n - 1) / 2; i >= 0; --i)
+	{
+		MaxHeapIfy(ar, i, n);
+	}
+}
+
+void HeapSort(int* ar, int n)
+{
+	BuildMaxHeap(ar, n);
+	for (int i = n - 1; i > 0; i--)
+	{
+		int temp = ar[i];
+		ar[i] = ar[0];
+		ar[0] = temp;
+		MaxHeapIfy(ar, 0, i);
 	}
 }
