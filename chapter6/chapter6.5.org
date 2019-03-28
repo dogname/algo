@@ -1,0 +1,66 @@
+** 优先队列(Priority Queue)
+** 练习
+*** 
+略
+*** 
+略
+*** 
+#+BEGIN_SRC
+HEAP-MINIMUM(A)
+1   return A[1]
+#+END_SRC
+
+#+BEGIN_SRC
+HEAP-EXTRACT-MIN(A)
+1   if A.heapsize < 1
+2       error "heap underflow"
+3   min = A[1]
+4   A[1] = A[A.heapsize]
+5   A.heapsize = A.heapsize - 1
+6   MIN-HEAPIFY(A,1)
+7   return min
+#+END_SRC
+
+#+BEGIN_SRC
+HEAP-DECREASE-KEY(A, i, key)
+1   if key > A[i]
+2       error "new key is bigger than current key"
+3   A[i] = key
+4   while i > 1 and A[PARENT(i)] > A[i]
+5       exchange A[i] with A[PARENT(i)]
+6       i = PARENT(i)
+#+END_SRC
+
+
+#+BEGIN_SRC
+MIN_HEAP-INSERT
+1   A.heapsize = A.heapsize + 1
+2   A[A.heapsize] = $\infty$
+3   HEAP-DECREASE-KEY(A, A.heapsize, key)
+#+END_SRC
+*** 
+不破坏最大堆并且可以正常增大
+*** 
+#+BEGIN_SRC
+HEAP-INCREASE-KEY(A, i, key)
+1   if key < A[i]
+2       error "new key is smaller than current key"
+4   while i > 1 and A[PARENT(i)] < key
+5       A[i] = A[PARENT(i)]
+6       i = PARENT(i)
+7   A[i] = key
+#+END_SRC
+*** 
+*队列*: 插入时, 优先级初始化为0, 并将已存在元素的优先级加1
+
+*栈*: 插入新元素时初始化优先级比已存在元素优先级最高的大
+***                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    
+#+BEGIN_SRC
+HEAP-EXTRACT-MIN(A)
+1   if A.heapsize < 1
+2       error "heap underflow"
+4   A[i] = A[A.heapsize]
+5   A.heapsize = A.heapsize - 1
+6   MAX-HEAPIFY(A,i)
+#+END_SRC
+

@@ -1,0 +1,55 @@
+** 维护堆性质
+#+BEGIN_SRC
+MAX_HEAPIFY(A,i)
+1   l = LEFT(i)
+2   r = RIGHT(i)
+3   if l <= A.heap-size and A[l] >= A[i]
+4       largest = l
+5   else 
+6       largest = i
+7   if r <= A.heap-size and A[r] >= A[i]
+8       largest = r
+9   if largest != i
+10      exchange A[i] with A[largest]
+11      MAX-HEAPIFY(A, largest)
+#+END_SRC
+** 练习
+*** 
+    略
+*** 
+#+BEGIN_SRC
+MIN-HEAPIFY(A,i)
+1   l = LEFT(i)
+2   r = RIGHT(i)
+3   if l <= A.heap-size and A[l] <= A[i]
+4       smallest = l
+5   else 
+6       smallest = i
+7   if r <= A.heap-size and A[r] >= A[i]
+8       smallest = r
+9   if smallest != i
+10      exchange A[i] with A[largest]
+11      MIN-HEAPIFY(A, largest)
+#+END_SRC
+*** 
+只执行1,2,3,5,6,8一次, 退出后就是最大堆
+*** 
+只执行1,2,3,5,6,8一次, 退出后就是最大堆
+*** 
+#+BEGIN_SRC
+MAX_HEAPIFY(A, i)
+1   while(1) 
+2       l = LEFT(i)
+3       r = RIGHT(i)
+5       largest = i
+6       if l <= A.heap-size and A[l] >= A[i]
+7           largest = l
+8       if r <= A.heap-size and A[r] >= A[i]
+9           largest = r
+10      if largest != i
+11          exchange A[i] with A[largest]
+12          MAX-HEAPIFY(A, largest)
+13      else
+14          break;
+15      i = largest
+#+END_SRC
