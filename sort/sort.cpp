@@ -125,3 +125,34 @@ void HeapSort(int* ar, int n)
 		MaxHeapIfy(ar, 0, i);
 	}
 }
+
+int Partition(int* ar, int n)
+{
+	int key = ar[n - 1];
+	int temp;
+	int i = -1;
+	for (int j = 0; j < n - 1; j++)
+	{
+		if (ar[j] <= key)
+		{
+			i++;
+			temp = ar[i];
+			ar[i] = ar[j];
+			ar[j] = temp;
+		}
+	}
+	temp = ar[i + 1];
+	ar[i + 1] = key;
+	ar[n - 1] = temp;
+	return i + 1;
+}
+
+void QuickSort(int* ar, int n)
+{
+	if (n > 1)
+	{
+		int offset = Partition(ar, n);
+		QuickSort(ar, offset);
+		QuickSort(&ar[offset], n - offset);
+	}
+}

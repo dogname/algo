@@ -24,4 +24,8 @@ void BuildMaxHeap(int* ar, int n);
 
 void HeapSort(int* ar, int n);
 
+int Partition(int* ar, int n);
+
+void QuickSort(int* ar, int n);
+
 #endif  // __SORT_H_

@@ -9,7 +9,8 @@ enum SortMethod
 	Insert_Sort,
 	Merge_Sort,
 	Bubble_Sort,
-	Heap_Sort
+	Heap_Sort,
+	Quick_Sort
 };
 
 enum
@@ -36,10 +37,14 @@ static int TestSort(const int* ar, int n, SortMethod method)
 	case Heap_Sort:
 		HeapSort(temp, n);
 		break;
+	case Quick_Sort:
+		QuickSort(temp, n);
+		break;
 	default:
 		std::cout << "不存在的排序方式" << std::endl;
 		return Sort_Failure;
 	}
+
 	for (int i = 1; i < n; ++i)
 	{
 		if (temp[i] < temp[i - 1])
@@ -66,5 +71,6 @@ int main()
 	TestSort(Array_Init, test_size, Merge_Sort);
 	TestSort(Array_Init, test_size, Bubble_Sort);
 	TestSort(Array_Init, test_size, Heap_Sort);
+	TestSort(Array_Init, test_size, Quick_Sort);
 	return 0;
 }
