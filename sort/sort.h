@@ -28,4 +28,6 @@ int Partition(int* ar, int n);
 
 void QuickSort(int* ar, int n);
 
+void CountingSort(int* ar, int n);
+
 #endif  // __SORT_H_
