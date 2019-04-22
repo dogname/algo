@@ -114,5 +114,3 @@ void LinkList::Delete(int i, int& key)
 	if (ppre->next == head)
 		delete ppre;
 }
-
-void LinkList::Delete() {}
