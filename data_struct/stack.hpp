@@ -1,6 +1,7 @@
 #ifndef __STACK_HPP_
 #define __STACK_HPP_
 #include <cstddef>
+#include <cstdlib>
 #include <iostream>
 template <typename T>
 struct StackNode {
@@ -50,7 +51,6 @@ Stack<T>& Stack<T>::operator=(const Stack<T>& st)
 		{
 			pthis = new StackNode<T>{0, nullptr};
 			pthis->val = pthat->val;
-			pthis = pthis->next;
 			pthat = pthat->next;
 		}
 	}
@@ -62,6 +62,7 @@ void Stack<T>::push(T& e)
 {
 	StackNode<T>* pst = new StackNode<T>{e, top->next};
 	top = pst;
+  ++size;
 }
 
 template <typename T>
@@ -74,9 +75,10 @@ void Stack<T>::pop(T& e)
 	else
 	{
 		e = top->val;
-		StackNode<T> tmp = top;
+		StackNode<T>* tmp = top;
 		top = top->next;
 		delete tmp;
+    --size;
 	}
 }
 
@@ -85,5 +87,13 @@ bool Stack<T>::IsEmpty()
 {
 	return (!top);
 }
-
+template<typename T>
+Stack<T>::~Stack()
+{
+ T e;
+  while(top)
+    {
+      pop(e);
+    }
+}
 #endif

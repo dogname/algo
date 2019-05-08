@@ -2,8 +2,8 @@
 #include <iostream>
 
 LinkList::LinkList()
-    : size(0)
-    , head(nullptr)
+  :size(0)
+  ,head(nullptr)
 {
 }
 
@@ -13,16 +13,18 @@ LinkList::LinkList(LinkList const& list)
 	if (size == 0)
 	{
 		head = nullptr;
-		return;
 	}
-	LSingleNode* pthis = head;
-	LSingleNode const* plist = list.head;
-	while (plist)
+	else
 	{
-		pthis = new LSingleNode;
-		pthis->key = plist->key;
-		pthis = pthis->next;
-		plist = plist->next;
+		LSingleNode* pthis = head;
+		LSingleNode const* plist = list.head;
+		while (plist)
+		{
+			pthis = new LSingleNode;
+			pthis->key = plist->key;
+			pthis = pthis->next;
+			plist = plist->next;
+		}
 	}
 }
 

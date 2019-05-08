@@ -1,6 +1,7 @@
 #ifndef __LINKLIST_H_
 #define __LINKLIST_H_
 #include <cstddef>
+#include <cstdlib>
 struct LSingleNode {
 	int key;
 	LSingleNode* next;
