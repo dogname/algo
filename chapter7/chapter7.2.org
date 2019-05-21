@@ -1,0 +1,13 @@
+** 快速排序的性能
+*** 最坏情况分析  
+$$T(n)=T(n-1)+T(0)+\Theta(n)=T(n-1)+\Theta(n)$$
+** 练习
+*** Use the substitution method to prove that the recurrence $T(n)=T(n-1)+\Theta(n)$ has the solution $T(n)=\Theta(n^2)$. 
+假设 $T(n-1)\leqslant c(n-1)^2$
+$$T(n)\leqslant c(n-1)^2 + \Theta(n)=cn^2-2c+1+\Theta(n)=cn^2-2cn+1+c_1n+c_2=cn^2+(c_1-2c)n+c_2+1$$
+当 $c \geqslant c_1/2, c_2+1<0$ 时
+$$T(n)\leqslant cn^2$$
+*** What is the running time of QUICKSORT when all elements of array A have the same value?
+$$\Theta(n^2)$$
+*** Show that the running time of QUICKSORT is $\Theta(n)$ when the array A contains
+最坏情况, 剩下的见 

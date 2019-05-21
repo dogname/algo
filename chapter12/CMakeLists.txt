@@ -1,0 +1,6 @@
+cmake_minimum_required(VERSION 3.12)
+project(binschtree)
+set(CMAKE_EXPORT_COMPILE_COMMANDS on)
+add_library(binschtree bintree.h bintree.cpp)
+add_executable(demo test.cpp)
+target_link_libraries(demo binschtree)
