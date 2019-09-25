@@ -96,6 +96,8 @@ private:
 	void rightRoate(RBNode<T>* x);
 
 	RBNode<T>* search(RBNode<T>* _root, T key) const;
+
+	void insertFix(RBNode<T>* z);
 };
 
 template <typename T>
@@ -218,6 +220,77 @@ void RBTree<T>::rightRoate(RBNode<T>* x)
 		y->parent->right = y;
 	y->right  = x;
 	x->parent = y;
+}
+
+template <typename T>
+void RBTree<T>::insert(T key)
+{
+	RBNode<T>* z  = new RBNode<T>(RED, key, nullptr, nullptr, nullptr);
+	RBNode<T>* px = root;
+	RBNode<T>* py = nullptr;
+	while (root)
+	{
+		py = px;
+		if (key < px->key)
+			px = px->left;
+		else
+			px = px->right;
+	}
+	z->parent = py;
+	if (!py)
+		root = z;
+	else if (z->key < py->key)
+		py->left = z;
+	else
+		py->right = z;
+	insertFix(z);
+}
+
+template <typename T>
+void RBTree<T>::insertFix(RBNode<T>* z)
+{
+	while (z->parent && z->parent->color == RED)
+	{
+		if (z->parent == z->parent->parent->left)
+		{
+			RBNode<T>* uncle = z->parent->parent->right;
+			if (uncle && uncle->color == RED)
+			{
+				uncle->color             = BLACK;
+				z->parent->color         = BLACK;
+				z->parent->parent->color = RED;
+				z                        = z->parent->parent;
+			}
+			else if (z == z->parent->right)
+			{
+				z = z->parent;
+				leftRoate(z);
+			}
+			z->parent->color         = BLACK;
+			z->parent->parent->color = RED;
+			rightRoate(z->parent->parent);
+		}
+		else
+		{
+			RBNode<T>* uncle = z->parent->parent->left;
+			if (uncle && uncle->color == RED)
+			{
+				uncle->color             = BLACK;
+				z->parent->color         = BLACK;
+				z->parent->parent->color = RED;
+				z                        = z->parent->parent;
+			}
+			else if (z == z->parent->left)
+			{
+				z = z->parent;
+				rightRoate(z);
+			}
+			z->parent->color         = BLACK;
+			z->parent->parent->color = RED;
+			leftRoate(z->parent->parent);
+		}
+	}
+	root->color = BLACK;
 }
 
 #endif /* __MYRBTREE_HPP__ */
