@@ -358,21 +358,24 @@ void RBTree<T>::remove(T key)
 template <typename T>
 void RBTree<T>::remove(RBNode<T>* z)
 {
+	RBNode<T>* y = z;
+	RBNode<T>* x;
+	RBColor yOriginalCol = y->color;
 	if (!z->left)
 	{
-		transSubtree(z, z->right);
+		x = z->right;
+		transSubtree(z, x);
 	}
 	else if (!z->right)
 	{
-		transSubtree(z, z->left);
+		x = z->left;
+		transSubtree(z, x);
 	}
 	else
 	{
-		RBNode<T>* y = successor(z);
-		RBNode<T>* x = y->right;
-
-		RBColor yOriginalCol = y->color;
-
+		y            = successor(z);
+		yOriginalCol = y->color;
+		x            = y->right;
 		if (y->parent == z)
 			x->parent = y;
 		else
@@ -384,9 +387,9 @@ void RBTree<T>::remove(RBNode<T>* z)
 		transSubtree(z, y);
 		y->left         = z->left;
 		y->left->parent = y;
-		delete z;
-		if (yOriginalCol == BLACK) removeFix(x);
 	}
+	delete z;
+	if (yOriginalCol == BLACK) removeFix(x);
 }
 
 template <typename T>
