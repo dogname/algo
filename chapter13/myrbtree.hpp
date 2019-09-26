@@ -1,6 +1,8 @@
 #ifndef __MYRBTREE_HPP__
 #define __MYRBTREE_HPP__
 #include <cstddef>
+#include <iostream>
+#include <stack>
 /**
  *  @brief 红黑树节点
  *
@@ -65,6 +67,11 @@ public:
 	void remove(T key);
 
 	/**
+	 * @brief 查找节点 x (有右孩子) 的后继节点
+	 */
+	RBNode<T>* successor(RBNode<T>* x);
+
+	/**
 	 * @brief 返回最小值, 空树返回 0
 	 */
 	T minimum();
@@ -73,6 +80,16 @@ public:
 	 * @brief 返回最大值, 空树返回 0
 	 */
 	T maximum();
+
+	/**
+	 * @brief 中序遍历
+	 */
+	void inOrder() const;
+
+	/**
+	 * @breif 前序遍历
+	 */
+	void preOrder() const;
 
 private:
 	/**
@@ -98,6 +115,12 @@ private:
 	RBNode<T>* search(RBNode<T>* _root, T key) const;
 
 	void insertFix(RBNode<T>* z);
+
+	void transSubtree(RBNode<T>* src, RBNode<T>* dic);
+
+	void removeFix(RBNode<T>* x);
+
+	void remove(RBNode<T>* z);
 };
 
 template <typename T>
@@ -171,6 +194,17 @@ void RBTree<T>::destory(RBNode<T>* _root)
 }
 
 template <typename T>
+RBNode<T>* RBTree<T>::successor(RBNode<T>* x)
+{
+	RBNode<T>* ret = x->right;
+	while (ret->left)
+	{
+		ret = ret->left;
+	}
+	return ret;
+}
+
+template <typename T>
 T RBTree<T>::minimum()
 {
 	if (!root) return 0;
@@ -209,8 +243,8 @@ template <typename T>
 void RBTree<T>::rightRoate(RBNode<T>* x)
 {
 	RBNode<T>* y = x->left;
-	x->right     = y->left;
-	if (y->left) y->left->parent = y;
+	x->left      = y->right;
+	if (x->left) x->left->parent = x;
 	y->parent = x->parent;
 	if (!y->parent)
 		root = y;
@@ -228,7 +262,7 @@ void RBTree<T>::insert(T key)
 	RBNode<T>* z  = new RBNode<T>(RED, key, nullptr, nullptr, nullptr);
 	RBNode<T>* px = root;
 	RBNode<T>* py = nullptr;
-	while (root)
+	while (px)
 	{
 		py = px;
 		if (key < px->key)
@@ -239,7 +273,7 @@ void RBTree<T>::insert(T key)
 	z->parent = py;
 	if (!py)
 		root = z;
-	else if (z->key < py->key)
+	else if (key < py->key)
 		py->left = z;
 	else
 		py->right = z;
@@ -260,6 +294,7 @@ void RBTree<T>::insertFix(RBNode<T>* z)
 				z->parent->color         = BLACK;
 				z->parent->parent->color = RED;
 				z                        = z->parent->parent;
+				continue;
 			}
 			else if (z == z->parent->right)
 			{
@@ -279,6 +314,7 @@ void RBTree<T>::insertFix(RBNode<T>* z)
 				z->parent->color         = BLACK;
 				z->parent->parent->color = RED;
 				z                        = z->parent->parent;
+				continue;
 			}
 			else if (z == z->parent->left)
 			{
@@ -291,6 +327,179 @@ void RBTree<T>::insertFix(RBNode<T>* z)
 		}
 	}
 	root->color = BLACK;
+}
+
+template <typename T>
+void RBTree<T>::transSubtree(RBNode<T>* src, RBNode<T>* dic)
+{
+	if (!src->parent)
+		root = dic;
+	else if (src == src->parent->left)
+		src->parent->left = dic;
+	else
+		src->parent->right = dic;
+	if (dic) dic->parent = src->parent;
+}
+
+template <typename T>
+void RBTree<T>::remove(T key)
+{
+	RBNode<T>* pt = root;
+	while (key != pt->key)
+	{
+		if (key < pt->key)
+			pt = pt->left;
+		else
+			pt = pt->right;
+	}
+	remove(pt);
+}
+
+template <typename T>
+void RBTree<T>::remove(RBNode<T>* z)
+{
+	RBNode<T>* y = z;
+	RBNode<T>* x;
+	RBColor yOriginalCol = y->color;
+	if (!z->left)
+	{
+		x = z->right;
+		transSubtree(z, x);
+	}
+	else if (!z->right)
+	{
+		x = z->left;
+		transSubtree(z, x);
+	}
+	else
+	{
+		y            = successor(z);
+		yOriginalCol = y->color;
+		x            = y->right;
+		if (y->parent == z)
+			x->parent = y;
+		else
+		{
+			transSubtree(y, x);
+			y->right         = z->right;
+			y->right->parent = y;
+		}
+		transSubtree(z, y);
+		y->left         = z->left;
+		y->left->parent = y;
+		delete z;
+		if (yOriginalCol == BLACK) removeFix(x);
+	}
+}
+
+template <typename T>
+void RBTree<T>::removeFix(RBNode<T>* x)
+{
+	if (x != root && x->color == BLACK)
+	{
+		if (x == x->parent->left)
+		{
+			RBNode<T>* brother = x->parent->right;
+			if (brother->color == RED)
+			{
+				brother->color   = BLACK;
+				x->parent->color = RED;
+				leftRoate(x->parent);
+				brother = x->parent->right;
+			}
+			if (brother->left->color == BLACK && brother->right->color == BLACK)
+			{
+				brother->color = RED;
+				x              = x->parent;
+			}
+			else if (brother->right->color == BLACK)
+			{
+				brother->left->color = BLACK;
+				brother->color       = RED;
+				rightRoate(brother);
+				brother = x->parent->right;
+			}
+			brother->color        = x->parent->color;
+			x->parent->color      = BLACK;
+			brother->right->color = BLACK;
+			leftRoate(x->parent);
+			x = root;
+		}
+		else
+		{
+			RBNode<T>* brother = x->parent->left;
+			if (brother->color == RED)
+			{
+				brother->color   = BLACK;
+				x->parent->color = RED;
+				rightRoate(x->parent);
+				brother = x->parent->left;
+			}
+			if (brother->left->color == BLACK && brother->right->color == BLACK)
+			{
+				brother->color = RED;
+				x              = x->parent;
+			}
+			else if (brother->left->color == BLACK)
+			{
+				brother->right->color = BLACK;
+				brother->color        = RED;
+				leftRoate(brother);
+				brother = x->parent->left;
+			}
+			brother->color       = x->parent->color;
+			x->parent->color     = BLACK;
+			brother->left->color = BLACK;
+			rightRoate(x->parent);
+			x = root;
+		}
+	}
+	x->color = BLACK;
+}
+template <typename T>
+void RBTree<T>::preOrder() const
+{
+	using std::cout;
+	using std::endl;
+	using std::stack;
+	stack<RBNode<T>*> St;
+	RBNode<T>* pt = root;
+	while (pt || !St.empty())
+	{
+		while (pt)
+		{
+			cout << pt->key << ",";
+			St.push(pt);
+			pt = pt->left;
+		}
+		pt = St.top();
+		St.pop();
+		pt = pt->right;
+	}
+	cout << endl;
+}
+
+template <typename T>
+void RBTree<T>::inOrder() const
+{
+	using std::cout;
+	using std::endl;
+	using std::stack;
+	stack<RBNode<T>*> St;
+	RBNode<T>* pt = root;
+	while (pt || !St.empty())
+	{
+		while (pt)
+		{
+			St.push(pt);
+			pt = pt->left;
+		}
+		pt = St.top();
+		cout << pt->key << ",";
+		St.pop();
+		pt = pt->right;
+	}
+	cout << endl;
 }
 
 #endif /* __MYRBTREE_HPP__ */
