@@ -40,8 +40,11 @@ n 个内部节点的红黑树最大高度为 $2log_2(n+1)$
 file:right.png
 file:left.png
 ** 插入
-1. 根据 key 值的大小插入新的节点, 颜色为红色
-2.
+1. 根据 key 值的大小插入新的节点 z, 颜色为红色
+2. 若插入的是根节点, 只需要把根设为黑色
+3. 若插入节点 z 的 parent 是红色的
+   1. z 的 uncle 是红色的, 将 parent 和 uncle 设为黑色, grandparent 设为红色, 将 grandparent 当成插入节点, 重新判断
+   2. z 的 uncle 是黑色的(tip. T.nil 也是黑色的), 将 z 到 uncle 的路径调为人形, parent 设为黑色 grandparent 设为红色, 将 grandparent 向 uncle 方向旋转
 #+BEGIN_SRC C++
 template <typename T>
 void RBTree<T>::leftRoate(RBNode<T>* x)
@@ -150,6 +153,59 @@ void RBTree<T>::insertFix(RBNode<T>* z)
 
 #+END_SRC
 
-** 删除
-   
- 
+** 删除   
+*** 子树替换的辅助程序
+#+BEGIN_SRC C++
+  template <typename T>
+  void RBTree<T>::transSubtree(RBNode<T>* src, RBNode<T>* dic)
+  {
+    if (!src->parent)
+      root = dic;
+    else if (src == src->parent->left)
+      src->parent->left = dic;
+    else
+      src->parent->right = dic;
+    if (dic) dic->parent = src->parent;
+  }
+#+END_SRC
+
+*** 删除节点 z
+1. z 的孩子小于 2 个. =y = x=, =x = z->child=
+2. z 有 2 个孩子. 两个指针 x, y; y 总是指向 z 或 z 的后继. x 总是指向 y 的替代者. 保存 y 的原始颜色
+ =y = successor(z)=, =x = y->right=
+#+BEGIN_SRC C++
+  template <typename T>
+  void RBTree<T>::remove(RBNode<T>* z)
+  {
+    if (!z->left)
+    {
+      transSubtree(z, z->right);
+    }
+    else if (!z->right)
+    {
+      transSubtree(z, z->left);
+    }
+    else
+    {
+      RBNode<T>* y = successor(z);
+      RBNode<T>* x = y->right;
+
+      RBColor yOriginalCol = y->color;
+      if (y->parent == z)
+        x->parent = y;
+      else
+      {
+        transSubtree(y, x);
+        y->right         = z->right;
+        y->right->parent = y;
+      }
+      transSubtree(z, y);
+      y->left         = z->left;
+      y->left->parent = y;
+      delete z;
+      if (yOriginalCol == BLACK) removeFix(x);
+    }
+  }
+#+END_SRC
+
+*** 修复红黑树, 使其满足 5 条性质
