@@ -170,8 +170,8 @@ void RBTree<T>::insertFix(RBNode<T>* z)
 #+END_SRC
 
 *** 删除节点 z
-1. z 的孩子小于 2 个. =y = x=, =x = z->child=
-2. z 有 2 个孩子. 两个指针 x, y; y 总是指向 z 或 z 的后继. x 总是指向 y 的替代者. 保存 y 的原始颜色
+1. z 的孩子小于 2 个. =y = z=, =x = z->child=
+2. z 有 2 个孩子. 两个指针 x, y; y 指向 z 的后继. x 总是指向 y 的替代者 =x = y->right=. 保存 y 的原始颜色
  =y = successor(z)=, =x = y->right=
 #+BEGIN_SRC C++
   template <typename T>
@@ -209,3 +209,29 @@ void RBTree<T>::insertFix(RBNode<T>* z)
 #+END_SRC
 
 *** 修复红黑树, 使其满足 5 条性质
+**** y 的原始颜色是红色的, 则红黑树的性质仍然保持
+1. 树中黑高不变, 保持性质 5
+2. y 在新位置的颜色是 z 的颜色所以新位置, y 不会破坏性置 4. 若 y 是红色的, 则 x 是黑色的, x 替代 y 也不会破坏性置 4
+3. 明显根结点的颜色不会变, 所有结点没有多出或少颜色, 空叶子节点的颜色也不会变化. 所以性质 1,2,3 保持
+**** y 是黑色的, 给 x 添加一个黑色
+1. 有可能产生的问题
+  | 编号 |                 问题                  |                              解决办法 |
+  |------+---------------------------------------+---------------------------------------|
+  | <l>  |                  <c>                  |                                   <r> |
+  | 1    |       若 x 是根,违返了性质 1, 2       | 只保留 x 的一个黑色 =x.color = BLACK= |
+  | 2    |     若 x 是红黑色的违返性质 1         |       去除 x 的红色 =x.color = BLACK= |
+  | 3    | 若 x 不是根且是双黑色的, 违返了性质 1 |                                  [[solver 1][办法]] |
+   
+2. 解决办法 <<solver 1>>
+   1. *x 的兄弟节点 brother 是红色的*. 
+      
+         =x.parent.colr = RED, brother.color=BLACK= 向 x 方向旋转 =x.parent=
+   2. *x 的兄弟节点 brother 是黑色的*
+      * *brother 的孩子都是是黑色的*
+          #+BEGIN_SRC C
+          brother.color = RED;
+          x = x.parent;
+          #+END_SRC
+      * *=brother.left.color = RED=, =brother.right.color = BLACK=*
+      * *=brother.right.colr =RED=*
+ 
