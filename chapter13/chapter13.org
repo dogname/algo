@@ -153,6 +153,52 @@ void RBTree<T>::insertFix(RBNode<T>* z)
 
 #+END_SRC
 
+*** 没有父指针的红黑树插入
+插入时需要回返节点来进行修正, 若不提供父指针就需要栈来保存插入时的路径
+#+begin_example 
+RB-INSERT(T, z)
+    y = T.nil
+    x = T.root
+    stack St
+    while x ≠ T.nil
+        y = x
+        if z.key < x.key
+            x = x.left
+        else
+            x = x.right
+        St.push(y)
+    if y == T.nil
+        T.root = z
+    elseif z.key < y.key
+        y.left = z
+    else 
+        y.right = z
+    z.left = T.nil
+    z.right = T.nil
+    z.color = RED
+    RB-INSERT-FIXUP(T, z, St)
+
+RB-INSERT-FIXUP(T, z, St)
+    while z ≠ T.root and (p = St.pop()).color == RED // pop 是 top, pop 2合1
+        gp = St.pop()
+        if p == gp.left
+            uncle = gp.right
+            if uncle.color == RED
+                uncle.color = BLACK
+                p.color = BLACK
+                gp.color = RED
+                z = gp
+            else
+                if z = p.right
+                    leftRoate(T, p)
+                    swap(z, p)
+                p.color = BLACK
+                gp.color = RED
+                rightRoate(gp)
+                break
+        else (same as before clause with "left" and "right" exchanged)
+    T.root.color = BLACK
+#+end_example
 ** 删除   
 *** 子树替换的辅助程序
 #+BEGIN_SRC C++
