@@ -14,7 +14,11 @@
  *  5. 从一个节点到该节点的子孙节点的所有路径上包含相同数目的黑节点
  *
  */
-enum RBColor { RED, BLACK };
+enum RBColor
+{
+	RED,
+	BLACK
+};
 template <typename T>
 class RBNode
 {
@@ -24,7 +28,10 @@ public:
 	RBNode* left;
 	RBNode* right;
 	RBNode* parent;
-	RBNode(RBColor _color = BLACK, T _key = 0, RBNode* _left = nullptr, RBNode* _right = nullptr, RBNode* _parent = nullptr) : color(_color), key(_key), left(_left), right(_right), parent(_parent) {}
+	RBNode(RBColor _color = BLACK, T _key = 0, RBNode* _left = nullptr, RBNode* _right = nullptr, RBNode* _parent = nullptr)
+	    : color(_color), key(_key), left(_left), right(_right), parent(_parent)
+	{
+	}
 };
 
 /**
@@ -136,10 +143,14 @@ RBTree<T>::~RBTree()
 }
 
 template <typename T>
-RBNode<T>* RBTree<T>::copy(RBNode<T>* parent, RBNode<T>* _root)
+RBNode<T>* RBTree<T>::copy(RBNode<T>* _parent, RBNode<T>* _root)
 {
 	if (!_root) return nullptr;
-	RBNode<T>* ret = new RBNode<T>(_root->color, _root->key, copy(ret, _root->left), copy(ret, _root->right), parent);
+	RBNode<T>* ret = new RBNode<T>(_root->color, _root->key);
+	ret->parent    = _parent;
+	ret->left      = copy(ret, _root->left);
+	ret->right     = copy(ret, _root->right);
+	return ret;
 }
 
 template <typename T>
@@ -148,6 +159,7 @@ RBTree<T>& RBTree<T>::operator=(const RBTree<T>& rbt)
 	if (this == &rbt) return *this;
 	destory(root);
 	root = copy(nullptr, rbt.root);
+	return *this;
 }
 
 template <typename T>
