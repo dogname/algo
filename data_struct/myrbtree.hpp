@@ -357,14 +357,15 @@ template <typename T>
 void RBTree<T>::remove(T key)
 {
 	RBNode<T>* pt = root;
-	while (key != pt->key)
+	while (pt)
 	{
+		if (key == pt->key) break;
 		if (key < pt->key)
 			pt = pt->left;
 		else
 			pt = pt->right;
 	}
-	remove(pt);
+	if (pt) remove(pt);
 }
 
 template <typename T>
