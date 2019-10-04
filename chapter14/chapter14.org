@@ -1,0 +1,104 @@
+#+html_head: <link rel="stylesheet" type="text/css" href="/home/ticks/Public/org_style.css" />
+#+title: 区间树
+
+* 数据结构扩张
+** 动态顺序统计
+只需要在红黑树的每个节点上添加一个属性 size 来表示子树的大小,就可以用类似于二分查找的方法快速找到顺序统计量
+** 区间树(interval tree)
+#+BEGIN_SRC C++
+  template typename<T> class Interval
+  {
+  public:
+    T low;
+    T high;
+    Interval(T _low, T _high) : low(_low), high(_high) {}
+    bool operator==(Interval<T>& _Int)
+    {
+      return low == _Int.low && high = _Int.high;
+    }
+    friend ostream& operator<<(ostream& os, Interval<T>& inter)
+    {
+      os << "[" << inter.low << "," << inter.high << "]";
+      return os;
+    }
+  };
+  template typename<T> class ITNode
+  {
+  public:
+    Interval<T> inter;
+    T max;
+    ITNode* parent;
+    ITNode* left;
+    ITNode* right;
+  };
+#+END_SRC
+
+*** INTERVAL-INSERT 和 INTERVAL-DELETE
+ 同 RB-INSERT 近似. 将 key 换为 inter.low
+ 维护 max.
+
+*** INTERVAL-SEARCH(T, i)
+   
+#+BEGIN_SRC C++
+  template <typename T>
+  bool isOverlap(Interval<T>& a, Interval<T>& b)
+  {
+    return a.low <= b.high && b.low <= a.high;
+  }
+  template <typename T>
+  ITNode* IntervalTree<T>::search(Interval<T>& x)
+  {
+    ITNode* pt = root;
+    while (pt && !isOverlap(pt->inter, x))
+    {
+      if (pt->left && pt->left->max >= x.low)
+        pt = pt->left;
+      else
+        pt = pt->right;
+    }
+    return pt;
+  }
+#+END_SRC
+ 
+** 思考
+****  
+#+BEGIN_EXAMPLE
+LEFT-ROATE(T, x)
+1   y = x.right;
+2   x.right = y.left
+3   if x.right
+4       x.right.parent = x
+5   y.parent = x.parent
+6   if !y.parent
+7       T.root = y
+8   elseif x == x.parent.left
+9      x.parent.left = y
+10  else 
+11     x.parent.right = y
+12  y.left = x
+13  x.parent = y
+14  y.max = x.max
+15  x.max = max(x.int.high, x.left.max, x.right.max)  
+#+END_EXAMPLE
+**** 
+将大于等于(>=) 改为 大于(>)
+**** 
+利用中序遍历的思想
+#+BEGIN_EXAMPLE
+SEARCH_MIN(root, i)
+1   if !root
+2       return root
+3   if root.left and root.left.max >= i.low
+4      y = SEARCH_MIN(root.left, i)
+5      if y
+6          return y
+7   elseif i overlap root
+8      return root
+9   else 
+10     return SEARCH_MIN(root.right, i)
+#+END_EXAMPLE
+**** 
+    SEARCH 修改为 == 时返回 
+**** 
+1. 基础数据结构, 树堆(treap)
+2. 用与孩子节点的差值来作为优先级指标
