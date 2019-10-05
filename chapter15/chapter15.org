@@ -1,0 +1,31 @@
+#+html_head: <link rel="stylesheet" type="text/css" href="/home/ticks/Public/org_style.css" />
+#+title: 动态规划(dynamic programing)
+* 钢条切割
+给长度为 n 的钢条和一个价格表 $p_i$, 如何切割收益最大
+** 普通递归
+收益 $r_n=max(r_i+r_{n-i})$
+#+BEGIN_EXAMPLE
+CUT-ROD(p, n)
+1   if n == 0
+2       return 0
+3   q = -1
+4   for i = 1 to n
+5       q = max(q, p[i] + CUT-ROD(p, n-i))
+6   return q
+#+END_EXAMPLE
+$$T(n)=1+\sum_{i=0}^{n-1}T(i) = 2^n$$
+
+** 动规
+#+BEGIN_EXAMPLE
+CUT-ROD(p, n, r)
+1   if r[n] > 0
+2       return r[n]
+3   if n == 0
+4      r[0] = 0
+5      return 0
+6   q = 0
+7   for i = 1 to n
+8       q = max(q, p[i] + CUT-ROD(p, n-i))
+9   r[n] = q
+10  return q
+#+END_EXAMPLE
