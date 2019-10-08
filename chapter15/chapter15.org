@@ -21,11 +21,93 @@ CUT-ROD(p, n, r)
 1   if r[n] > 0
 2       return r[n]
 3   if n == 0
-4      r[0] = 0
-5      return 0
-6   q = 0
-7   for i = 1 to n
-8       q = max(q, p[i] + CUT-ROD(p, n-i))
-9   r[n] = q
-10  return q
+4      return 0
+5   q = 0
+6   for i = 1 to n
+7       q = max(q, p[i] + CUT-ROD(p, n-i))
+8   r[n] = q
+9   return q
 #+END_EXAMPLE
+
+或者
+#+BEGIN_EXAMPLE
+CUT-ROD(p, n)
+1   let r[1...n] be a new array
+2   r[0] = 0
+3   for i = 1 to n
+4       q = 0
+6       for j = 1 to i
+7           q = max(q, p[j] + r[i-j])
+8       r[i] = q
+9   return r[n]
+#+END_EXAMPLE
+
+** 子问题图
+#+BEGIN_SRC dot :cmdline -T png -Kdot :file subG.png
+  digraph G{
+    4->3->2->1->0
+    4->2
+    4->1
+    4->0
+    3->1
+    3->0
+    2->0
+  }
+#+END_SRC
+
+#+RESULTS:
+[[file:subG.png]]
+
+** 练习
+*** 
+$T(0)=1=2^0$
+假设 n 小于 N 的时候满足 $T(n)=2^n$
+则$$T(N)=1+\sum_{j=0}^{N-1}T(j)=1+\sum_{j=0}^{N-1}2^j=1+(2^N-1)=2^N$$
+*** 
+$p = {0.5, 1, 1.5, 12, 20}, n =8$
+
+贪心结果 5+3, 收益 20+1.5=21.5
+
+最优 4+4, 收益 12+12=24
+***  
+#+BEGIN_EXAMPLE
+CUT-ROD(p, n, cost)
+1   let r[1...n] be a new array
+2   r[0] = 0
+3   for i = 1 to n
+4       q = 0
+6       for j = 1 to i - 1
+7           q = max(q, p[j] + r[i - j] - cost)
+8       if(q < p[i] 
+9           q = p[i]
+10      r[i] = q
+11  return r[n]
+#+END_EXAMPLE
+
+*** 
+略
+*** 
+#+BEGIN_EXAMPLE
+fbi(n)
+1   res[3] = {1, 1, 2}
+2   for(int i = 3; i < n; ++i)
+3       res[i % 3] = res[(i + 1) % 3]+res[(i + 2) % 3]
+4   return res[(n - 1) % 3]
+#+END_EXAMPLE
+
+#+BEGIN_SRC dot :file fbi.png :cmdline -Tpng -Kdot
+  digraph G{
+    6->5
+    6->4
+    5->4
+    5->3
+    4->3->2
+    4->2
+    3->1
+    }
+#+END_SRC
+
+#+RESULTS:
+[[file:fbi.png]]
+
+n 个顶点, 2n-4 条边
