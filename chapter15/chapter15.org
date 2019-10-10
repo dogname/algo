@@ -1,5 +1,8 @@
 #+html_head: <link rel="stylesheet" type="text/css" href="/home/ticks/Public/org_style.css" />
+#+options: creator:t author:t email:t
+#+author: ticks
 #+title: 动态规划(dynamic programing)
+#+email: xiehuiwu1996@gmail.com
 * 钢条切割
 给长度为 n 的钢条和一个价格表 $p_i$, 如何切割收益最大
 ** 普通递归
@@ -111,3 +114,53 @@ fbi(n)
 [[file:fbi.png]]
 
 n 个顶点, 2n-4 条边
+
+* 矩阵链乘法
+$A_{p\times q}\cdot B_{q\times r}=C_{p\times r}$ 用标量乘法的次数来表复杂度的话, 该矩阵乘法的代价 $pqr$
+** 动态规划
+1. 递归公式 $m_{i,j}$ 表示 $A_iA_{i+1}\cdots A_j$ 的代价
+\[m_{i,j}=\begin{cases}0,&i=j\\min\{m_{i,k}+m_{k+1,j}+p_{i-1}p_kp_j\},&i< j\end{cases}\]
+
+#+BEGIN_EXAMPLE
+  MATRIX-CHAIN-ORDER(p)
+  1   n = p.length - 1
+  2   let m[1,2,...,n;1,2,...n] and s[1,2,...,n-1;2,3,...,n] be a new array
+  3   for i = 1 to n
+  4       m[i, i] = 0
+  5   for l = 2 to n
+  6       for i = 1 to n - l + 1
+  7           j = i + l - 1
+  8           m[i, j] = ∞
+  9           for k = 1 to j - 1
+  10              q = m[i, k] + m[k + 1, j] + p_{i-1}p_kp_j
+  11              if q < m[i, j]
+  12                  m[i, j] = q
+  13                  s[i, j] = k
+  14   return m and s
+#+END_EXAMPLE
+
+** 练习
+*** 
+$$((A_1A_2)((A_3A_4)(A_5A_6)))$$
+*** 
+#+BEGIN_EXAMPLE
+MATRIX-MULTIPLY(A, B)
+1   if A.cols != B.rows
+2       error "维度错误"
+3   else let C be a new A.rows X B.cols matrix initialise with 0
+4       for i  = 1 to A.rows
+5           for j = 1 to B.cols
+6               for k = 1 to A.cols
+7                   C[i][j] += A[i][k]*B[k][j]
+8   return C
+
+MATRIX-CHAIN-MULTIPLY(A, s, i, j)
+1   if i == j
+2       return A[i]
+3   return MATRIX-MULTIPLY(MATRIX-CHAIN-MULTIPLY(A, s, i, s[i][j]), MATRIX-CHAIN-MULTIPLY(A, s, i, s[i][j]))
+#+END_EXAMPLE
+
+*** 
+$$P(n+1) = \sum_{j=0}^{n}P(j)P(n+1-j)=P(n)+\sum_{j=1}^{n-1}P(j)P(n+1-j)\geqslant P(n)+\sum_{j=1}^{n-1}P(j)P(n-j)=2P(n)\geqslant 2*2^n=2^{n+1}$$
+*** 
+略
