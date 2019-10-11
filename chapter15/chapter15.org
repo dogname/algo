@@ -164,3 +164,9 @@ MATRIX-CHAIN-MULTIPLY(A, s, i, j)
 $$P(n+1) = \sum_{j=0}^{n}P(j)P(n+1-j)=P(n)+\sum_{j=1}^{n-1}P(j)P(n+1-j)\geqslant P(n)+\sum_{j=1}^{n-1}P(j)P(n-j)=2P(n)\geqslant 2*2^n=2^{n+1}$$
 *** 
 略
+*** 
+\[\sum_{i=1}^{n}\sum_{j=1}^{n}R(i,j)=\sum_{l=2}^{n}\sum_{i=1}^{n-l-1} 2(l-1)=_{k=l-1}\sum_{k=1}^{n-1}2nk-2k^2=\frac{n^3-n}{3}\]
+    
+
+*** 
+一对括号意为着一次乘法, n 个元素需要 n-1 次乘法, 需要 n-1 对括号
