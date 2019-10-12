@@ -170,3 +170,102 @@ $$P(n+1) = \sum_{j=0}^{n}P(j)P(n+1-j)=P(n)+\sum_{j=1}^{n-1}P(j)P(n+1-j)\geqslant
 
 *** 
 一对括号意为着一次乘法, n 个元素需要 n-1 次乘法, 需要 n-1 对括号
+* 动态规划原理
+** 最优子结构
+*** 无权最短路径是有最优子结构的
+*** 无权最长路径没有最优子结构
+** 重叠子问题
+** 重构最优解
+** 备忘
+
+** 练习
+*** 
+穷举法书上给的下限为 $\Omega(\dfrac{4^n}{n^{3/2}})$
+
+分治法
+
+时间复杂度的递推公式
+$$T(n)=\sum_{k=1}^{n-1}(T(k)+T(n-k)+O(1))+O(1)\leqslant 2\sum_{k=1}^{n-1}T(k)+a(n-1)+b$$
+假设 $T(n)=O(3^n)$
+
+可以假设 $T(N)\leqslant c3^n-d$, T(1)是常数,只要 C 足够大就行
+
+假设 $k\in[1,n-1]$ 都满足 $T(k)\leqslant c3^n-d$, 则
+
+
+$$\begin{aligned}T(n) &\leqslant 2\sum_{k-1}^{n-1}T(k)+a(n-1)+b \\&\leqslant 2\sum_{k=1}^{n-1}(c3^n-d)+a(n-1)+b \\&= c3^n-3c-2d(n-1)+a(n-1)+b\end{aligned}$$
+
+
+取$d=a/2, c>\frac{b+d}{3}=\frac{2b+a}{6}$
+$$T(n)\leqslant c3^n-d=O(3^n)$$
+所以,分治法更有效率一点
+*** 
+#+BEGIN_SRC dot :file recursivetree.png :cmdline -Tpng -Kdot
+  digraph G{
+    a[label="1...16"]
+    b[label="1...8"]
+    c[label="9...16"]
+    d[label="1...4"]
+    e[label="5...8"]
+    f[label="9...12"]
+    g[label="13...16"]
+    h[label="1...2"]
+    i[label="3...4"]
+    j[label="5...6"]
+    k[label="7...8"]
+    l[label="9...10"]
+    m[label="11...12"]
+    n[label="13...14"]
+    o[label="15...16"]
+    a->b
+    a->c
+    b->d
+    b->e
+    c->f
+    c->g
+    d->h
+    d->i
+    e->j
+    e->k
+    f->l
+    f->m
+    g->n
+    g->o
+    h->1
+    h->2
+    i->3
+    i->4
+    j->5
+    j->6
+    k->7
+    k->8
+    l->9
+    l->10
+    m->11
+    m->12
+    n->13
+    n->14
+    o->15
+    o->16
+  }
+#+END_SRC
+
+#+RESULTS:
+[[file:recursivetree.png]]
+
+这些子问题都没有重叠.
+*** 
+    有
+*** 
+p={5,6,8,4,3}
+最优 $(A_1(A_2(A_3A_4)))$
+
+Capulet 教授的方法
+
+setp1. $((A_1A_2A_3)A_4)$
+
+step2. $((A_1(A_2A_3))A_4)$
+*** 
+假设经过了中间货币 k , 那么 $R_{ij}$=R_{ik}*R_{kj}$
+若 $R_{ik} or R_{kj}$ 不是最优的,可以用更好的替换
+
