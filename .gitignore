@@ -38,3 +38,4 @@ build
 *.png
 *.html
 *.svg
+Makefile
