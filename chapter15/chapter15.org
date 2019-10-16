@@ -601,3 +601,85 @@ PRINT-WORD-NEATLY(WORDS, beg, n)
 4   print "\n"
 5   print WORDS[beg[n]...n] with interval space
 #+end_example
+** 编辑距离
+*** 
+1. c[i][j] 为 x[1...i]->y[1...j]的最小编辑距离, d[1...6]存储了 copy, repleace, delete, insert, twiddle, kill
+$$c[i][j] = min\begin{cases}
+d[1]+c[i-1][j-1],&x[i]==y[j]\\
+d[2]+c[i-1][j-1],&x[i]!=y[j]\\
+d[3]+c[i-1]j]\\
+d[4]+c[i][j-1]\\
+d[5]+c[i-2][j-2], &x[i]==y[j-1]\ and\ x[i-1]==y[j]\\
+d[6]+c[k][j], &j==n
+\end{cases}$$
+
+$C[0][j]=j*d[4], C[j][0]=j*d[3]$
+2. operator[i][j] 保存操作
+
+#+begin_example
+  EDIT-DISTANCE(x,y,d)
+  1   let c[0...m][0...n] and operator[0...m][0...n] be new 2-D arrays
+  2   for i = 0 to n
+  3       c[0][i] = i * d[4]
+  4       operator[0][i] = 4
+  5   for i = 0 to m
+  6       c[i][0] = i * d[3]
+  7       operator[i][0] = 3
+  8   for i = 1 to m
+  9       for j = 1 to n
+  10          if x[i]==y[j]
+  11             tmp = d[1] + c[i-1][j-1]
+  12             operator[i][j] = 1
+  13          else 
+  14             tmp = d[2] + c[i-1][j-1]
+  15             operator[i][j] = 2
+  16          if d[3] + c[i-1][j] < tmp
+  17             tmp = d[3] + c[i-1][j]
+  18             operator[i][j] = 3
+  19          if d[4] + c[i][j-1] < tmp
+  20             tmp = d[4] + c[i][j-1]
+  21             operator[i][j] = 4
+  22          if x[i] == y[j-1] and x[i-1]==y[j] and d[5] + c[i-2][j-2] < tmp
+  23             tmp = d[5] + c[i-2][j-2]
+  24             operator[i][j] = 5
+  25          if j == n && d[6] + c[i][j] < tmp
+  26             tmp = d[6] + c[i][j]
+  27             operator[i][j] = 6
+  28             ik = i
+  28             break
+  29  return c operator ik
+#+end_example
+*** 
+相同 (copy) 不同 (repleace) x 空格 (insert) y 空格 (delete) 
+** 公司聚会计划
+1. s1[p] p 参加 s2[p] p 不参加
+   1. $s1[p] = p.score + \sum s2[p_{child}]$
+   2. $s2[p]=\sum max\{s1[p_{child},s2[p_child]\}$
+
+#+begin_example
+  COMPANY-PARTY(T)
+  1   let s1[] and s2[] be new hashtabs
+  2   let attend[] be a new list
+  3   COMPANY-PARTY-AUX(T.root, s1, s2, attend)
+  4   s = s2[T.root]
+  5   if s < s1[T.root]
+  6      s = s1[T.root]
+  7      attend.add(T.root.name)
+  8   return s and attend
+
+  COMPANY-PARTY-AUX(node, s1, s2, attend)
+  1   if node is null
+  2       return
+  3   s2[node] = 0
+  4   s1[node] = node.score
+  5   pt = node.left
+  6   while(pt is not null)
+  7       COMPANY-PARTY-AUX(pt, s1, s2, attend)
+  8       if s1[pt] < s2[pt]
+  9          s2[node] += s2[pt]
+  10      else
+  11         s2[node] += s1[pt]
+  12      s1[node] += s2[pt]
+  13  if s1[node] > s2[node]
+  14       attend.add(node.name)
+#+end_example
