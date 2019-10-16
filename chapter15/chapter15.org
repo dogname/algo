@@ -531,7 +531,7 @@ LONGEST-PALINDROME(str)
   }
 
   double minBitonicPath(Point* pots, int n, int** pre)
-  {
+  { // pre[i][j] 保存路径p[i] 到 p[j] 的最右端所连接的点
     if (n < 2) return 0;
     double** length = (double**)malloc(n * sizeof(double*));
     for (int i = 0; i < n; ++i) length[i] = (double*)malloc(sizeof(double) * (i + 1));
@@ -561,3 +561,43 @@ LONGEST-PALINDROME(str)
     return ret;
   }
 #+end_src
+** 整齐打印
+1. lineCube[i][j] 表示填充 i 到 j 的行的额外空格数的立方
+   1. $(M-j+i-\sum\limits_{k=i}^{j}l_k)^3, j < n$
+   2. $0, j<n$
+2. Cube[i] 表示填充 i 个单词的额外空格立方和, 为了重构打印方式, 用 beg[j] 保存以 j 为结尾行的开始
+$$Cube[j] = min\{ Cube[i-1] + lineCube[i][j] \}$$
+
+#+begin_example
+NEATLY-PRINT(L, n, W) // L[1..n] 单词的长度
+1   let lineExtra[1..n,1..n] and lineCube[1..n,1..n]  be  new 2-D arrays initialise with infinity
+2   let Cube[1..n] and beg[1..n] be new arrays
+3   for i = 1 to n
+4       lineExtra[i][i] = M - l[i]
+5       for j = i + 1 to n
+6           lineExtra[i][j+1] = lineExtra[i][j-1] - l[j] - 1
+7   for j = 1 to n
+8       for i = i to j
+9           if lineExtra[i][j] < 0
+10              lineCube[i][j] = infinity
+11          elseif j == n
+12              lineCube[i][j] = 0
+13          else
+14              lineCube[i][j] = lineExtra[i][j]^3
+15  Cube[0] = 0
+16  for j = 1 to n
+17      Cube[j] = MAX
+18      for i = 1 to j
+19              tmp = cube[i-1] + lineCube[i][j]
+20              if tmp < Cube[j]
+21                 Cube[j] = tmp
+22                 beg[j] = i
+23  return Cube and beg
+
+PRINT-WORD-NEATLY(WORDS, beg, n)
+1   if n == 0 
+2       return 
+3   PRINT-WORD-NEATLY(WORDS, beg, beg[n]-1)
+4   print "\n"
+5   print WORDS[beg[n]...n] with interval space
+#+end_example
