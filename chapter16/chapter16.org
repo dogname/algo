@@ -1,0 +1,114 @@
+#+options: html-link-use-abs-url:nil html-postamble:auto html-preamble:t
+#+options: html-scripts:t html-style:t html5-fancy:nil tex:t toc:2 email:t author:t
+#+html_doctype: xhtml-strict
+#+html_container: div
+#+description:
+#+keywords:
+#+html_link_home:
+#+html_link_up:
+#+html_mathjax:
+#+html_head: <link rel="stylesheet" type="text/css" href="/home/ticks/Public/org_style.css" />
+#+html_head_extra:
+#+subtitle:
+#+infojs_opt:
+#+title: 贪心算法(greedy algorithm)
+#+author: ticks
+#+email: xiehuiwu1996@gmail.com
+#+latex_header:
+
+* 活动选择问题 
+  有一个集合活动的集合 S={a_1, a_2, $\cdots$, a_n}, 每个活动 a_i 都有一个开始时间 s_i 和一个结束时间 f_i, a_i 发生在 [s_i, f_i), 若两个活动的发生时间没有交集, 称它们是兼容的.
+我们希望选出最大兼容活动集
+** 最优子结构
+假设集合 $S_{ij}$ 的最大兼容子集 $A_{ij}$ 包含活动 $a_k$, 那么 $S_{ij}$ 包含 $S_{ik}, S_{kj}$ 的最大兼容子集.
+大小
+$$c[i][j] = \begin{cases}0, &S_{ij}=\emptyset\\
+max_{a_k\in S_{ij}}\{ c[i][k] + c[k][j] +1 \}, &S_{ij}\neq\emptyset \end{cases}$$ 
+
+** 贪心选择
+选择最早结束的活动
+#+begin_quote
+假设 S 的最大兼容子集 A, A 中最早结束的活动 $a_m$, S 中最早结束的活动 $a_i$. 若 $a_i = a_m$, 选择最早结束的活动可以选到. 若 $a_i \neq a_m$ 可以替换 $a_i$ 与 $a_m$, 易知 $a_i$ 与 A 中其它的活动兼容,
+替换后的子集仍然是最大兼容子集 
+#+end_quote
+
+** 递归贪心算法
+
+s 开始时间的集合, f 结束时间的集合, n 个活动
+
+#+begin_example
+  RECURSIVE-ACTIVITY-SELECTOR(s, f, k, n)
+  1   m = k + 1
+  2   while s[m] < f[k] and m <= n // 找到最早结束的兼容活动
+  3       ++m
+  4   if m <= n
+  5       return {a_m} ∪ RECURSIVE-ACTIVITY-SELECTOR(s, f, m, n)
+  6   return {}
+#+end_example
+
+** 迭代贪心算法
+
+#+begin_example
+  GREEDY-ACTIVITY-SELECTOR(s,f,n)
+  1   A = {a_1}
+  2   k = 1
+  3   for m = 2 to n
+  4       if s[m] >= f[k]
+  5           A += a_m
+  6           k = m
+  7   return A
+#+end_example
+
+** 练习
+*** 动态规划算法
+#+begin_example
+  f[0] = 0
+  s[n+1] = inf
+  DP-ACTIVITY-SELECTOR(s, f, n)
+  1   let c[0...n][1...n+1] be a new array
+  2   let A bew a new emptyset
+  3   for i = 0 to n
+  4       c[i][i+1] = 0
+  5   for l = 2 to n + 1
+  6      for i = 0 to n - l
+  7          j = i + l
+  8          c[i][j] = 0;
+  9          if f[i] <= s[j]
+  10             for k = i + 1 to j - 1
+  11                 tmp = c[i][k] + c[k][j] + 1
+  12                 if tmp > c[i][j]
+  13                     c[i][k] = tmp
+  14             A = A ∪ a_k
+  15  return c[0][n+1] and A
+#+end_example
+
+复杂度 $O(n^3)$
+*** 另一种贪心方法
+证明与选最早结束的活动几乎相同
+    活动以按开始时间排好序
+#+begin_example
+  GREEDY-ACTIVITY-SELECTOR(s,f,n)
+  1   A = {a_n}
+  2   k = n
+  3   for m = n - 2 to 1
+  4       if f[m] <= s[k]
+  5           A += a_m
+  6           k = m
+  7   return A
+#+end_example
+
+*** 不是所有的贪心方法都可以得到最优解
+**** 选最短的
+| i   | 1 | 2 | 3 |  4 |
+|-----+---+---+---+----|
+| s_i | 1 | 3 | 5 | 10 |
+| f_i | 4 | 6 | 9 | 13 |
+**** 最早开始
+| i   |  1 | 2 | 3 |
+|-----+----+---+---|
+| s_i |  1 | 2 | 6 |
+| f_i | 10 | 5 | 9 |
+
+*** 区间图着色
+申请教室数组 room, 按开始时间分配教室, 若 room 中有教室空闲, 分配该空闲教室. 若 room 中教室没有空闲, 新申请一个教室加入 room, 并分配.
+*** 动态规划算法
