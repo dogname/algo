@@ -76,10 +76,12 @@ s 开始时间的集合, f 结束时间的集合, n 个活动
   9          if f[i] <= s[j]
   10             for k = i + 1 to j - 1
   11                 tmp = c[i][k] + c[k][j] + 1
-  12                 if tmp > c[i][j]
-  13                     c[i][k] = tmp
-  14             A = A ∪ a_k
-  15  return c[0][n+1] and A
+  12                 index;
+  13                 if tmp > c[i][j]
+  14                     c[i][k] = tmp
+  15                     index = k
+  16             A = A ∪ a_{index}
+  17  return c[0][n+1] and A
 #+end_example
 
 复杂度 $O(n^3)$
@@ -112,3 +114,71 @@ s 开始时间的集合, f 结束时间的集合, n 个活动
 *** 区间图着色
 申请教室数组 room, 按开始时间分配教室, 若 room 中有教室空闲, 分配该空闲教室. 若 room 中教室没有空闲, 新申请一个教室加入 room, 并分配.
 *** 动态规划算法
+#+begin_example
+  MAXV-ACTICITY-SECECTOR(s,f,v,n)
+  1   let V[0...n][1...n+1] and select[0...n][1...n+1] be new arrays
+  2   for i = 0 to n
+  3       V[i][i + 1] = 0 
+  4   for l = 2 to n
+  5       for i = 0 to n - l
+  6           j = n + l
+  7           V[i][j] = 0
+  8           if f[i] <= s[j]
+  9               for k = i + 1 to j - 1
+  10                  tmp = V[i][k] + V[k][j] + v[k]
+  11                  if tmp > V[i][j]
+  12                      V[i][j] = tmp
+  13                      select[i][j] = k
+  14  return V[0][n+1] and select
+#+end_example
+
+* 贪心算法原理
+** 贪心对动态规划
+1. 0-1 背包问题
+2. 分数背包问题
+** 练习
+*** 证明: 分数背包问题具有贪心选择性质
+#+begin_quote
+假定背包中以经装了价值最高的商品, 若没有装完单价最高的商品, 可以将单价最高的商品与背包中商品替换, 这样不会降低背包的价值
+#+end_quote
+*** 求解 0-1 背包问题
+#+begin_example
+  ZERO-ONE-KNAPSACK(v, w, n, W)
+  1   let p[1...n][0...W] and t[1...n][0...W] be new arrays
+  2   for i = 0 to W
+  5       if w[1] < W
+  6           p[1][i] = v[i]
+  7           t[1][i] = 1
+  8  for i = 2 to n
+  9      for j = 0 to W
+  10         p[i][w]=p[i-1][w]
+  11         t[i][w]=false
+  12         if w[i] < j
+  13             tmp = p[i-1][j-w[i]] + v[i]
+  14             if tmp > p[i][w]
+  15                p[i][w] = tmp
+  16                t[i][w] = true
+  17  return p[n][W] and t
+
+  GOODS-KNAPSACK(t, i, weight, pack)
+  1   if i == 0 or weight == 0
+  2       return
+  3   if t[i][weight]
+  4       pack.add[i]
+  5       GOODS-KNAPSACK(t, i -1, weight-w[i], pack)
+  6   else
+  7       GOODS-KNAPSACK(t, i -1, weight, pack)
+#+end_example
+*** 商品顺序重量递增, 价值递减
+按价值递增序拿, 直到装不下
+*** 长跑补水
+水足够到达下一个补水点就不补水
+*** 求包含点集的单位长度闭区间的最小集合
+用不重叠的区间,由小到大
+*** O(n) 分数背包问题
+不需要完全排序, 只需要足够大并且背包能装下, 用分组的方法 全集 O
+主元 m, G{a_i:avg_i>m, a_i $\in$ O}, P=O-G, W_G, W_P
+1. W < W_G, O=G. 递归调用
+2. W_G <= W <= W_G+W_P. 装 G, W=W-W_G, O=P, 递归调用
+*** A,B .最大化 $\Pi\limits_{i=1}^{n}a_i^{b_i}$
+相同的大小排序
