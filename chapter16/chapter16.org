@@ -182,3 +182,57 @@ s 开始时间的集合, f 结束时间的集合, n 个活动
 2. W_G <= W <= W_G+W_P. 装 G, W=W-W_G, O=P, 递归调用
 *** A,B .最大化 $\Pi\limits_{i=1}^{n}a_i^{b_i}$
 相同的大小排序
+* 赫夫曼编码
+** 前缀码(prefix code)
+没有任何码字是其它码字的前缀, 与其它字符编码相比拥有最优数据压缩率
+*** 编码
+将字符的码字连起来就可 nyw
+*** 解码
+    用一个二叉树来表示编码
+** 构造赫夫曼编码
+
+#+begin_example
+HUFFMAN(C)
+1   n = C.size
+2   用 C初始化最小优先队列Q
+3   for i = 1 to n-1
+4       z = new node
+5       z.left = x = EXTRACT-MIN(Q)
+6       z.right = y = EXTRACT-MIN(Q)
+7       z.freq = x.freq + y.freq
+8       INSERT(Q,z)
+9  return Q
+#+end_example
+
+** 证明算法正确性
+
+*** 引理 1
+#+begin_quote
+文件最优编码对应一个满二叉树
+#+end_quote
+证明:
+#+begin_quote
+假设 T 是一个不满的对应最优前缀码. 其中节点 x 只有一个孩子. 用 x 的子树代替 x, x 的子树所有节点深度减一. 代价下将. 与 T 是最优前缀码矛盾 
+#+end_quote
+*** 引理 2
+#+begin_quote
+若 x 和 y 是频率最小的两个字符, 那么存在最优编码树 T, x 和 y 是最深的叶子节点.
+#+end_quote
+*** 引理 3
+#+begin_quote
+节点拆分之后的树是新字符集的最优编码
+#+end_quote
+
+** 练习
+*** 求证 $x.freq=b.freq\rightarrow a.freq=b.freq=x.freq=y.freq$
+$$\begin{aligned}& \because x.freq \leqslant y.freq, a.freq\leqslant b.freq \text{且 x,y 的频率是最小的}, \\
+&\therefore x.freq\leqslant a.freq\leqslant b.freq\\
+&\text{又} \because x.freq = b.freq\\
+&\therefore x.freq = a.freq = b.freq. and b.freq \geqslant y.freq\geqslant x.freq\\
+&\therefore x.freq = a.freq = b.freq = y.freq\\
+\end{aligned}$$
+*** 引理 1
+*** 斐波那契数列的赫夫曼编码
+    第 i 个的编码
+$$\underbrace{1\cdots 1}_{n-i}0, i\neq 1$$
+$$\underbrace{1\cdots 1}_{n-1}, i\neq 1$$
