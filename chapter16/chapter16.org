@@ -236,3 +236,12 @@ $$\begin{aligned}& \because x.freq \leqslant y.freq, a.freq\leqslant b.freq \tex
     第 i 个的编码
 $$\underbrace{1\cdots 1}_{n-i}0, i\neq 1$$
 $$\underbrace{1\cdots 1}_{n-1}, i\neq 1$$
+* 拟阵
+#+begin_quote
+一个拟阵是满足如下条件的序偶 $M=(S,\mathcal{I})$
+1. $S$ 是一个有限集
+2. $\mathcal{I}$ 是 $S$ 的一个非空族
+3. 遗传性
+4. 交换性
+#+end_quote
+** 图拟阵
