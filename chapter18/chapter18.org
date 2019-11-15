@@ -1,0 +1,139 @@
+#+options: html-scripts:t html-style:t html5-fancy:nil tex:t toc:2 email:t author:t
+#+html_head: <link rel="stylesheet" type="text/css" href="/home/ticks/Public/org_style.css" />
+#+html_head_extra:
+#+subtitle:
+#+infojs_opt:
+#+title: B树
+#+author: ticks
+#+email: xiehuiwu1996@gmail.com
+#+latex_header:
+
+* B 树的定义
+
+B 树的性质
+1. 结点 x 属性
+   1. x.n, 关键字个数
+   2. x.key[n], 非降序的关键字
+   3. x.leaf, 是否为叶结点
+2. n+1 个指针
+3. $$k_1\leqslant x.key[1] \leqslant k_2\leqslant x.key[2]\leqslant \cdots\leqslant x.key[n] \leqslant k_{n+1}$$
+4. 叶结点具有相同的高度
+5. 关键字个数有上界和下界, 用最小度数度量(minmum degree) $t\geqslant 2$ 度量
+   1. 除了根结点以外的每个结点至少有 t-1 个关键字
+   2. 至多有 2t-1 个关键字
+所以 B 树至少是半满的. t=2 时的 B 树最简单, 内部结点有 2,3 或 4 个孩子,
+即 2-3-4 树
+* B 树的基本操作
+** 搜索(SEARCH)
+#+begin_example
+B-TREE-SEARCH(x, k)
+1   i = 1
+2   while i <= x.n and x.key[i] < k
+3       i = i + 1
+4   if i <= x.n and x.key[i] == k
+5       return (x, i)
+6   else if x.leaf
+7       return NIL
+8   else 
+9       DISK-READ(x, x.c[i])
+10  return B-TREE-SEARCH(x.c[i], k)
+#+end_example
+** 创建空树
+#+begin_example
+B-TREE-CREATE(T)
+1   x = ALLOCATE-NODE()
+2   x.leaf = TRUE
+3   x.n = 0
+4   DISK-WRITE(x)
+5   T.root = x
+#+end_example
+** 插入一个关键字
+插入以存在的结点, 若结点满了, 采取分裂的方法
+*** 分裂 B 树中的结点
+#+begin_example
+B-TREE-SPLIT-CHILD(x, i)
+1   z = ALLOCATE-NODE()
+2   y = x.c[i]
+3   z.leaf = y.leaf
+4   z.n = t - 1
+5   for j = 1 to t - 1
+6       z.key[j] = y.key[t + j]
+7   if !y.leaf
+8      for i = 1 to t
+9          z.c[j] = y.c[t + j]
+10  y.n = t - 1
+11  for j = x.n + 1 downto i + 1
+12      x.c[j + 1] = x.c[j]
+13  x.c[i + 1] = z
+14  for j = x.n downto i
+15      x.key[j + 1] = x,key[j]
+16  x.key[i] = y.key[t]
+17  x.n++;
+18  DISK-WRITE(y)
+19  DISK-WRITE(z)
+20  DISK-WRITE(x)
+#+end_example
+根的分裂是树升高的唯一途径
+*** 插入
+#+begin_example
+B-TREE-INSERT(T, k)
+1   r = T.root
+2   if r.n == 2t - 1
+3       s = ALLOCATE-NODE()
+4       T.root = s
+5       s.leaf = FALSE
+6       s.n = 0
+7       s.c[1] = r
+8       B-TREE-SPLIT-CHILD(s, 1)
+9       B-TREE-INSERT-NONFULL(s, k)
+10  else
+11      B-TREE-INSERT-NONFULL(r, k)
+#+end_example
+
+#+begin_example
+B-TREE-INSERT-NONFULL(x, k)
+1   i = x.n
+2   if x.leaf
+3       while i > 0 and k < x.key[i]
+4           x.key[i + 1] = x.key[i]
+5           i--
+6       x.key[i + 1] = k
+7       x.n++
+8       DISK-WRITE(x)
+9  else
+10     while i > 0 and k < x.key[i]
+11         i--
+12     i++
+13     DISK-READ(x.c[i])
+14     if x.c[i].n == 2t - 1
+15         B-TREE-SPLIT-CHILD(x, i)
+16         if k > x.key[i]
+17             i++
+18    B-TREE-INSERT-NONFULL(x.c[i], k)
+#+end_example
+
+** 练习
+*** 略
+*** 是否有冗余, 有的话何时有
+*** 如何找最小关键字;  某一关键字的前驱
+    最小关键字, 最左端叶子的第一个关键字;
+x.c[i].key[j]. 若 j != 1, 前驱 x.c[i].key[j-1]
+若 j==1, 前驱 x.key[i-1]
+*** 顺序插入 1...n
+$\Theta(n)$
+*** 叶结点具有更大的 t
+叶结点分裂后还是叶结点. 修改叶结点的分裂条件和分裂时的度
+*** 略
+*** t=3
+* 删除关键字
+操作
+#+begin_quote
+1. k 在 x 中且 x 是叶结点, 删除 k
+2. k 在 x 中且 x 是内部结点
+   1. x.c[i].n >= t, k = 前驱 k', 递归删除 k'
+   2. x.c[i].n < t, x.c[i+1].n >=t 后继
+   3. 将 k 与后合并到前, 递归删除 k
+3. 在子树中
+   1. 子树只含有 t-1 个关键字. 类似旋转
+   2. 都只含有 t-1 个关键字, 合并
+#+end_quote
